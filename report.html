@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Eduleb - قالبێکی خوێندنی HTML">
+    <meta name="keywords" content="خوێندن, کۆرس, ئۆنلاین, پەروەردە, HTML">
+    <title> ڕاپۆرت </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/fonts/themify-icons.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+    <!-- Mobile menu -->
+    <link rel="stylesheet" href="assets/css/jquery-simple-mobilemenu.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ستایلی ریسپۆنسیڤ بۆ مۆبایل */
+        @media (max-width: 576px) {
+            .type-chooser {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                padding: 0 10px;
+            }
+            .type-btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+        }
+        
+        @font-face {
+            font-family: ari;
+            src: url(Rabar_021\ \(1\).ttf);
+        }
+
+        * {
+            font-family: 'ari', 'DM Sans', 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands, 
+        .ti-star, .ti-check, .ti-book, .ti-alarm-clock, .ti-user, 
+        .ti-folder, .ti-medall-alt, .ti-id-badge, .ti-file, 
+        .ti-map, .ti-mobile, .ti-email, .ti-arrow-top-right,
+        .ti-user, .ti-book, .ti-star, .ti-check {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'themify', 'FontAwesome', sans-serif !important;
+        }
+        .fa-solid, .fas { font-family: 'Font Awesome 6 Free' !important; font-weight: 900 !important; }
+        .fa-regular, .far { font-family: 'Font Awesome 6 Free' !important; font-weight: 400 !important; }
+        .fa-brands, .fab { font-family: 'Font Awesome 6 Brands' !important; font-weight: 400 !important; }
+
+        :root {
+            --math-color: #007bff;     
+            --physics-color: #6f42c1;  
+            --chemistry-color: #28a745; 
+            --biology-color: #e83e8c;   
+            --english-color: #fd7e14;   
+            --literature-color: #d63384;
+            --history-color: #8b5cf6;   
+            --geography-color: #0d9488; 
+            --economics-color: #f59e0b; 
+            --kurdi-color: #ffc107;     
+            --arabic-color: #dc3545;    
+            --religion-color: #198754;  
+            --all-color: #343a40;       
+            --type-color: #17a2b8;     
+        }
+
+        .type-chooser {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .type-btn {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            color: #475569;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+        .type-btn i { font-size: 18px; }
+        .type-btn:hover, .type-btn.active {
+            background: var(--type-color) !important;
+            border-color: var(--type-color) !important;
+            color: #ffffff !important;
+            box-shadow: 0 6px 15px rgba(48, 90, 217, 0.3);
+        }
+
+        .chooser-separator {
+            width: 60px;
+            height: 3px;
+            background: #e2e8f0;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .subject-chooser {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 45px;
+            padding: 0 15px;
+        }
+
+        .chooser-btn {
+            background: #ffffff;
+            padding: 22px 30px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 140px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .chooser-btn i { font-size: 32px; margin-bottom: 10px; transition: transform 0.2s ease, color 0.2s ease; }
+        .chooser-btn span { font-weight: 700; font-size: 16px; }
+
+        .chooser-btn.all { border: 2px solid #cbd5e1; color: #334155; }
+        .chooser-btn.all i { color: #475569; }
+        .chooser-btn.all:hover, .chooser-btn.all.active {
+            background: var(--all-color) !important; border-color: var(--all-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(52, 58, 64, 0.25);
+        }
+        .chooser-btn.all:hover i, .chooser-btn.all.active i { color: #ffffff !important; }
+        
+        .chooser-btn.math { border: 2px solid rgba(0, 123, 255, 0.3); color: var(--math-color); }
+        .chooser-btn.math i { color: var(--math-color); }
+        .chooser-btn.math:hover, .chooser-btn.math.active {
+            background: var(--math-color) !important; border-color: var(--math-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        /* --- FIX DROPDOWN OPTIONS NOT SHOWING --- */
+
+/* 1. Unhide overflow on header container */
+/* ==========================================
+   ULTIMATE MODERN DROPDOWN MENU STYLE
+========================================== */
+
+/* Parent Nav Item Alignment */
+#main-menu .nav-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 28px !important;
+}
+
+#main-menu .nav-list > li {
+    position: relative !important;
+    padding: 15px 0 !important;
+}
+
+#main-menu .nav-list > li > a {
+    text-decoration: none !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+}
+
+#main-menu .nav-list > li.has-dropdown:hover > a {
+    color: #4f46e5 !important;
+}
+
+/* Modern Dropdown Box Container */
+#main-menu .dropdown-menu,
+header.sticky #main-menu .dropdown-menu,
+.sticky #main-menu .dropdown-menu {
+    display: block !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    background-color: #ffffff !important;
+    border-radius: 18px !important;
+    min-width: 220px !important;
+    padding: 12px !important;
+    margin-top: -4px !important;
+    list-style: none !important;
+    z-index: 99999 !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12),
+                0 0 15px rgba(0, 0, 0, 0.03) !important;
+
+    /* Animation Mechanics */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(12px) scale(0.98) !important;
+    transform-origin: top right !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    pointer-events: none !important;
+}
+
+/* Smooth Fade & Slide-down on Hover */
+#main-menu .has-dropdown:hover > .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+}
+
+/* Menu Items List */
+#main-menu .dropdown-menu li {
+    display: block !important;
+    margin-bottom: 4px !important;
+}
+
+#main-menu .dropdown-menu li:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Individual Links Styling */
+#main-menu .dropdown-menu li a,
+header.sticky #main-menu .dropdown-menu li a,
+.sticky #main-menu .dropdown-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 14px !important;
+    color: #334155 !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+}
+
+/* Hover & Active Effect inside Dropdown */
+#main-menu .dropdown-menu li a:hover,
+header.sticky #main-menu .dropdown-menu li a:hover,
+.sticky #main-menu .dropdown-menu li a:hover {
+    background-color: #f0f3ff !important; /* Soft Primary Tint */
+    color: #4f46e5 !important;
+    padding-right: 18px !important; /* Interactive Indent Effect */
+}
+
+/* Optional subtle left indicator dot/line on hover */
+#main-menu .dropdown-menu li a::after {
+    content: '' !important;
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #4f46e5 !important;
+    border-radius: 50% !important;
+    opacity: 0 !important;
+    transform: scale(0) !important;
+    transition: all 0.2s ease !important;
+}
+
+#main-menu .dropdown-menu li a:hover::after {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+        .chooser-btn.math:hover i, .chooser-btn.math.active i { color: #ffffff !important; }
+
+        .chooser-btn.physics { border: 2px solid rgba(111, 66, 193, 0.3); color: var(--physics-color); }
+        .chooser-btn.physics i { color: var(--physics-color); }
+        .chooser-btn.physics:hover, .chooser-btn.physics.active {
+            background: var(--physics-color) !important; border-color: var(--physics-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
+        }
+        .chooser-btn.physics:hover i, .chooser-btn.physics.active i { color: #ffffff !important; }
+
+        .chooser-btn.chemistry { border: 2px solid rgba(40, 167, 69, 0.3); color: var(--chemistry-color); }
+        .chooser-btn.chemistry i { color: var(--chemistry-color); }
+        .chooser-btn.chemistry:hover, .chooser-btn.chemistry.active {
+            background: var(--chemistry-color) !important; border-color: var(--chemistry-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+        .chooser-btn.chemistry:hover i, .chooser-btn.chemistry.active i { color: #ffffff !important; }
+
+        .chooser-btn.biology { border: 2px solid rgba(232, 62, 140, 0.3); color: var(--biology-color); }
+        .chooser-btn.biology i { color: var(--biology-color); }
+        .chooser-btn.biology:hover, .chooser-btn.biology.active {
+            background: var(--biology-color) !important; border-color: var(--biology-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(232, 62, 140, 0.3);
+        }
+        .chooser-btn.biology:hover i, .chooser-btn.biology.active i { color: #ffffff !important; }
+
+        .chooser-btn.english { border: 2px solid rgba(253, 126, 20, 0.3); color: var(--english-color); }
+        .chooser-btn.english i { color: var(--english-color); }
+        .chooser-btn.english:hover, .chooser-btn.english.active {
+            background: var(--english-color) !important; border-color: var(--english-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(253, 126, 20, 0.3);
+        }
+        .chooser-btn.english:hover i, .chooser-btn.english.active i { color: #ffffff !important; }
+
+        .chooser-btn.literature { border: 2px solid rgba(214, 51, 132, 0.3); color: var(--literature-color); }
+        .chooser-btn.literature i { color: var(--literature-color); }
+        .chooser-btn.literature:hover, .chooser-btn.literature.active {
+            background: var(--literature-color) !important; border-color: var(--literature-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
+        }
+        .chooser-btn.literature:hover i, .chooser-btn.literature.active i { color: #ffffff !important; }
+
+        .chooser-btn.history { border: 2px solid rgba(139, 92, 246, 0.3); color: var(--history-color); }
+        .chooser-btn.history i { color: var(--history-color); }
+        .chooser-btn.history:hover, .chooser-btn.history.active {
+            background: var(--history-color) !important; border-color: var(--history-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+        .chooser-btn.history:hover i, .chooser-btn.history.active i { color: #ffffff !important; }
+
+        .chooser-btn.geography { border: 2px solid rgba(13, 148, 136, 0.3); color: var(--geography-color); }
+        .chooser-btn.geography i { color: var(--geography-color); }
+        .chooser-btn.geography:hover, .chooser-btn.geography.active {
+            background: var(--geography-color) !important; border-color: var(--geography-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3);
+        }
+        .chooser-btn.geography:hover i, .chooser-btn.geography.active i { color: #ffffff !important; }
+
+        .chooser-btn.economics { border: 2px solid rgba(245, 158, 11, 0.3); color: var(--economics-color); }
+        .chooser-btn.economics i { color: var(--economics-color); }
+        .chooser-btn.economics:hover, .chooser-btn.economics.active {
+            background: var(--economics-color) !important; border-color: var(--economics-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        .chooser-btn.economics:hover i, .chooser-btn.economics.active i { color: #ffffff !important; }
+
+        .chooser-btn.kurdi { border: 2px solid rgba(255, 193, 7, 0.5); color: #b08800; }
+        .chooser-btn.kurdi i { color: #b08800; }
+        .chooser-btn.kurdi:hover, .chooser-btn.kurdi.active {
+            background: var(--kurdi-color) !important; border-color: var(--kurdi-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+        }
+        .chooser-btn.kurdi:hover i, .chooser-btn.kurdi.active i { color: #ffffff !important; }
+
+        .chooser-btn.arabic { border: 2px solid rgba(220, 53, 69, 0.3); color: var(--arabic-color); }
+        .chooser-btn.arabic i { color: var(--arabic-color); }
+        .chooser-btn.arabic:hover, .chooser-btn.arabic.active {
+            background: var(--arabic-color) !important; border-color: var(--arabic-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+        }
+        .chooser-btn.arabic:hover i, .chooser-btn.arabic.active i { color: #ffffff !important; }
+
+        .chooser-btn.religion { border: 2px solid rgba(25, 135, 84, 0.3); color: var(--religion-color); }
+        .chooser-btn.religion i { color: var(--religion-color); }
+        .chooser-btn.religion:hover, .chooser-btn.religion.active {
+            background: var(--religion-color) !important; border-color: var(--religion-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(25, 135, 84, 0.3);
+        }
+        .chooser-btn.religion:hover i, .chooser-btn.religion.active i { color: #ffffff !important; }
+
+        .subject_card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 25px; 
+            max-width: 100%; 
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            background: #edf2f7;
+            color: #4a5568;
+        }
+
+        .site-footer {
+            direction: rtl;
+            text-align: right;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .footer-bottom {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .subject_card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+        .subject_card i.main-icon {
+            font-size: 32px;
+            width: 65px;
+            height: 65px;
+            line-height: 65px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            margin: 0 auto 18px auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .pdf_item.math:hover .main-icon { background: rgba(0, 123, 255, 0.1); }
+        .pdf_item.physics:hover .main-icon { background: rgba(111, 66, 193, 0.1); }
+        .pdf_item.chemistry:hover .main-icon { background: rgba(40, 167, 69, 0.1); }
+        .pdf_item.biology:hover .main-icon { background: rgba(232, 62, 140, 0.1); }
+        .pdf_item.english:hover .main-icon { background: rgba(253, 126, 20, 0.1); }
+        .pdf_item.literature:hover .main-icon { background: rgba(214, 51, 132, 0.1); }
+        .pdf_item.history:hover .main-icon { background: rgba(139, 92, 246, 0.1); }
+        .pdf_item.geography:hover .main-icon { background: rgba(13, 148, 136, 0.1); }
+        .pdf_item.economics:hover .main-icon { background: rgba(245, 158, 11, 0.1); }
+        .pdf_item.kurdi:hover .main-icon { background: rgba(255, 193, 7, 0.1); }
+        .pdf_item.arabic:hover .main-icon { background: rgba(220, 53, 69, 0.1); }
+        .pdf_item.religion:hover .main-icon { background: rgba(25, 135, 84, 0.1); }
+
+        .subject_card h3 { font-size: 20px; font-weight: 700; color: #1a202c; margin-bottom: 6px; }
+        .subject_card p { font-size: 14px; color: #718096; margin-bottom: 20px; }
+
+        .btn_viewer {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 24px;
+            border-radius: 50px;
+            background: #F7FAFC;
+            color: #4A5568;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+        .btn_viewer i { font-size: 12px; }
+        .btn_viewer:hover { color: #fff !important; border-color: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .pdf_item.math .btn_viewer:hover { background: var(--math-color); }
+        .pdf_item.physics .btn_viewer:hover { background: var(--physics-color); }
+        .pdf_item.chemistry .btn_viewer:hover { background: var(--chemistry-color); }
+        .pdf_item.biology .btn_viewer:hover { background: var(--biology-color); }
+        .pdf_item.english .btn_viewer:hover { background: var(--english-color); }
+        .pdf_item.kurdi .btn_viewer:hover { background: var(--kurdi-color); }
+        .pdf_item.arabic .btn_viewer:hover { background: var(--arabic-color); }
+        .pdf_item.religion .btn_viewer:hover { background: var(--religion-color); }
+
+        @media (max-width: 576px) {
+            .type-btn { padding: 10px 22px; font-size: 14px; }
+            .subject-chooser { gap: 10px; }
+            .chooser-btn { padding: 15px 20px; border-radius: 14px; min-width: 105px; }
+            .chooser-btn i { font-size: 24px; margin-bottom: 6px; }
+            .chooser-btn span { font-size: 13px; }
+            .subject_card { padding: 35px 15px 20px 15px; margin-bottom: 15px; border-radius: 16px; }
+            .subject_card i.main-icon { font-size: 24px; width: 50px; height: 50px; line-height: 50px; margin-bottom: 10px; }
+            .subject_card h3 { font-size: 16px; margin-bottom: 4px; }
+            .subject_card p { font-size: 13px; margin-bottom: 12px; }
+            .btn_viewer { padding: 5px 14px; font-size: 11px; gap: 4px; }
+            .card-badge { top: 10px; right: 10px; font-size: 10px; padding: 2px 8px; }
+        }
+
+        .type-btn:hover {
+            background-color: #007bff !important;
+            border-color: #007bff !important;
+            color: #ffffff !important;
+        }
+        .type-btn.active {
+            background-color: #007bff !important;
+            border-color: #007bff !important;
+            color: #ffffff !important;
+        }
+
+        /* Quiz styles */
+        .quiz-box {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+        }
+        .quiz-option {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            padding: 16px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .quiz-option.selected {
+            background: #e0e7ff;
+            border-color: #4f46e5;
+            color: #4f46e5;
+        }
+
+        .premium-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+        .premium-card:hover {
+            transform: translateY(-4px);
+            border-color: #4f46e5;
+            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.12);
+        }
+
+        .pdf-badge-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            transition: all 0.2s ease;
+        }
+        .premium-card:hover .action-btn {
+            background: #4f46e5;
+            color: #ffffff;
+            border-color: #4f46e5;
+            transform: scale(1.05);
+        }
+/* --- FOOTER 5-COLUMN GRID FIX --- */
+.site-footer {
+    background-color: #0b1120 !important;
+    color: #94a3b8 !important;
+    padding: 60px 0 0 0 !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: inherit;
+}
+
+/* Transform Grid to exactly 5 equal columns */
+.site-footer .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr !important; /* ستوونی یەکەم کەمێک بەرینتر بۆ لوگۆ */
+    gap: 30px !important;
+    align-items: start !important;
+}
+
+/* Responsive Grid for Mobile & Tablets */
+@media (max-width: 991px) {
+    .site-footer .footer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .site-footer .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Brand & Logo */
+.site-footer .footer-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin-bottom: 15px !important;
+}
+
+.site-footer .footer-logo i {
+    color: #ffffff !important;
+    font-size: 26px !important;
+}
+
+.site-footer .brand-desc {
+    color: #94a3b8 !important;
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Titles */
+.site-footer .widget-title {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.site-footer .widget-title::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -6px !important;
+    right: 0 !important;
+    width: 30px !important;
+    height: 2px !important;
+    background-color: #6366f1 !important;
+}
+
+/* Links List */
+.site-footer .footer-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.site-footer .footer-links li {
+    margin-bottom: 12px !important;
+}
+
+.site-footer .footer-links a {
+    color: #cbd5e1 !important;
+    text-decoration: none !important;
+    font-size: 13.5px !important;
+    transition: all 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.site-footer .footer-links a:hover {
+    color: #818cf8 !important;
+    transform: translateX(-4px) !important;
+}
+
+/* Social Icons */
+.site-footer .footer-socials {
+    display: flex !important;
+    gap: 10px !important;
+}
+
+.site-footer .footer-socials a {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.site-footer .footer-socials a:hover {
+    background: #6366f1 !important;
+    border-color: #6366f1 !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Copyright Bottom Bar */
+.site-footer .footer-bottom {
+    margin-top: 50px !important;
+    padding: 20px 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background-color: #060a12 !important;
+}
+
+.site-footer .footer-bottom-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    font-size: 13px !important;
+    color: #64748b !important;
+}
+
+.site-footer .footer-bottom-content p {
+    margin: 0 !important;
+}
+
+.site-footer .footer-bottom-content a {
+    color: #818cf8 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+        .back-btn-container {
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+            padding: 10px 22px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .back-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .count-card {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+            border-radius: 16px;
+        }
+        .count-card:hover {
+            border-color: #4f46e5;
+            background: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.08);
+        }
+
+        .custom-tabs .nav-link {
+            background: transparent;
+            color: #64748b;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            padding: 10px 24px;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+        }
+        .custom-tabs .nav-link:hover {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+        .custom-tabs .nav-link.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.25);
+        }
+    </style>
+    
+</head>
+<body>
+   <div id="navigation" class="navbar-light bg-faded site-navigation navigation2">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Logo Section -->
+            <div class="col-20 align-self-center">
+                <div class="site-logo">
+                    <a href="index.html"><img src="assets/img/logo.png" alt="Grade12+"></a>          				
+                </div>
+            </div><!--- END Col -->
+        <!-- Main Desktop Menu -->
+<div class="col-60 d-flex">
+    <nav id="main-menu">
+        <ul class="nav-list">
+            <li><a href="about.html">دەربارە</a></li>                                 
+            
+            <li class="has-dropdown">
+                <a href="#">پۆلی دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">بەرەو دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                   <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                                        <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">زانکۆ</a>
+                <ul class="dropdown-menu">                                        
+                 <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </li>                            
+            
+            <li><a href="contact.html">پەیوەندی</a></li>
+        </ul>
+    </nav>
+</div><!-- END Col -->
+                <ul class="mobile_menu">						
+                    <li><a href="about.html">دەربارە</a></li>						
+                    <li><a href="#">پۆلی دوانزە</a>
+                        <ul class="sub-menu">										
+                            <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان </a></li>
+                            <li><a href="kurtkrawa.html"> کورتکراوەکان</a></li>
+                            <li><a href="taqikrdnawakan.html"> تاقیكردنه‌وه‌كان </a></li>
+                            <li><a href="quiz.html">کویز (جیاکراوە) </a></li>								
+                        </ul>
+                    </li>
+                    <li><a href="#">بەرەو دوانزە</a>
+                        <ul class="sub-menu">									
+                          <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>	
+                                        <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+				
+                        </ul>
+                    </li>			
+                    <li><a href="#">زانکۆ</a>
+                        <ul class="sub-menu">										
+                      <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                        </ul>
+                    </li>						
+                    <li><a href="contact.html">پەیوەندی</a></li>
+                </ul>			
+            </div>
+        </div>
+    </div> 	  
+
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1> ڕاپۆرت </h1>
+                    <ul>
+                        <li><a href="index.html"> زانكۆ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>  
+    <!-- END SECTION TOP -->
+<section id="report-maker" class="report-section section-padding" style="direction: rtl; font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div class="container">
+        <!-- Main Dashboard Wrapper -->
+        <div class="dashboard-container" style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-radius: 32px; box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.06), 0 0 1px 1px rgba(226, 232, 240, 0.8); padding: 50px 40px; margin: 30px 0; border: 1px solid #e2e8f0; position: relative; overflow: hidden;">
+            
+            <!-- Background Light Accents -->
+            <div style="position: absolute; top: -100px; right: -100px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(255, 255, 255, 0) 70%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: -100px; left: -100px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, rgba(255, 255, 255, 0) 70%); pointer-events: none;"></div>
+
+            <!-- Header Section -->
+            <div class="row align-items-center mb-5 pb-4 border-bottom position-relative" style="border-color: #f1f5f9 !important; z-index: 2;">
+                <div class="col-lg-8 text-right">
+                    <div style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 6px 16px; border-radius: 100px; margin-bottom: 16px; border: 1px solid #bae6fd; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.06);">
+                        <i class="fa-solid fa-graduation-cap" style="color: #0284c7; font-size: 0.88rem;"></i>
+                        <span style="color: #0369a1; font-weight: 700; font-size: 0.82rem; letter-spacing: -0.2px;">ڕاپۆرتی زانستی، ئەکادیمی و دیزاین</span>
+                    </div>
+                    <h3 class="fw-bold mb-2" style="font-size: 2.2rem; color: #0f172a; letter-spacing: -0.5px; line-height: 1.3;">سەرچاوەکان، قاڵبی ئاماده‌كراو و تەکنیکەکانی توێژینەوە</h3>
+                    <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.7; color: #64748b !important;">باشترین ئامرازەکانی ژیریی دەستکرد، ماڵپەڕی دیزاینی ئامادەکراو و فێرکاری بەسوود بۆ دروستکردنی ڕاپۆرتی بێ کەم‌ و کوڕی</p>
+                </div>
+            
+            </div>
+
+            <!-- SECTION 1: PROMPT TIPS & HUMANIZING -->
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h4 class="fw-bold mb-0" style="color: #0f172a; font-size: 1.3rem; display: flex; align-items: center; gap: 12px;">
+                    <span style="width: 40px; height: 40px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: #d97706; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; box-shadow: 0 4px 10px rgba(217, 119, 6, 0.12);">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </span>
+                    ڕێکارەکان: چۆن ڕاپۆرتەکە وەک نووسینی مرۆڤ دەربکەوێت؟
+                </h4>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="report-card h-100 p-4" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0.05) 100%); width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: 800; font-size: 1rem; border: 1px solid rgba(217, 119, 6, 0.2);">01</div>
+                            <h6 class="fw-bold mb-0" style="color: #0f172a; font-size: 1rem;">ئامادەکردنی پلان </h6>
+                        </div>
+                        <p class="mb-0" style="font-size: 0.88rem; line-height: 1.7; color: #64748b;">لەبری داواکردنی ڕاپۆرتێکی ئامادە، سەرەتا داوای پلان و پێڕستی بابەتەکە بکە و دواتر بەش بە بەش ناوەرۆکەکەی پڕ بکەرەوە.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="report-card h-100 p-4" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0.05) 100%); width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: 800; font-size: 1rem; border: 1px solid rgba(217, 119, 6, 0.2);">02</div>
+                            <h6 class="fw-bold mb-0" style="color: #0f172a; font-size: 1rem;">دیاریکردنی جۆری نووسین</h6>
+                        </div>
+                        <p class="mb-0" style="font-size: 0.88rem; line-height: 1.7; color: #64748b;">فەرمان بە AI بکە کە وەک خوێندکارێکی زانکۆ بنووسێت و ڕستەی سادە بەکاربهێنێت و لە بەکارهێنانی وشەی دووبارە و دەستکرد دووربکەوێتەوە.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="report-card h-100 p-4" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0.05) 100%); width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: 800; font-size: 1rem; border: 1px solid rgba(217, 119, 6, 0.2);">03</div>
+                            <h6 class="fw-bold mb-0" style="color: #0f172a; font-size: 1rem;">پشکنینی سەرچاوەکان</h6>
+                        </div>
+                        <p class="mb-0" style="font-size: 0.88rem; line-height: 1.7; color: #64748b;">ژیریی دەستکرد هەندێک جار سەرچاوەی ناڕاست دروست دەکات، بۆیە هەمیشە داوای لینکی توێژینەوە و بەڵگەنامە ئەکادیمییە ڕاستەقینەکان بکە.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: AI SEARCH & RESEARCH TOOLS -->
+            <div class="d-flex align-items-center justify-content-between mb-4 pt-4 border-top" style="border-color: #f1f5f9 !important;">
+                <h4 class="fw-bold mb-0" style="color: #0f172a; font-size: 1.3rem; display: flex; align-items: center; gap: 12px;">
+                    <span style="width: 40px; height: 40px; background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); color: #0369a1; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; box-shadow: 0 4px 10px rgba(3, 105, 161, 0.12);">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    باشترین ئامرازەکان بۆ گەڕانی زانستی 
+                </h4>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- Perplexity AI -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(2, 132, 199, 0.18);">
+                                    <i class="fa-solid fa-compass" style="color: #ffffff; font-size: 1.15rem;"></i>
+                                </div>
+                                <span style="background: #f0f9ff; color: #0284c7; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #bae6fd;">باشترین بۆ گەڕان</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Perplexity AI</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">وەڵامی وردی بابەتەکان دەداتەوە و ڕاستەوخۆ سەرچاوە زانستییەکانی ناو ئینتەرنێتت بۆ دیاری دەکات.</p>
+                        </div>
+                        <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" class="btn-report-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            سەردانکردنی ماڵپەڕ <i class="fa-solid fa-arrow-left icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Consensus AI -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(79, 70, 229, 0.18);">
+                                    <i class="fa-solid fa-brain" style="color: #ffffff; font-size: 1.15rem;"></i>
+                                </div>
+                                <span style="background: #e0e7ff; color: #4f46e5; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #c7d2fe;">سەرچاوەی زانستی</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Consensus AI</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">تەنها لە ناو توێژینەوە زانستییە باوەڕپێکراوەکاندا دەگەڕێت و پوختەی توێژینەوەکانت پێشکەش دەکات.</p>
+                        </div>
+                        <a href="https://consensus.app" target="_blank" rel="noopener noreferrer" class="btn-report-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            سەردانکردنی ماڵپەڕ <i class="fa-solid fa-arrow-left icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Elicit -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #059669 0%, #047857 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(5, 150, 105, 0.18);">
+                                    <i class="fa-solid fa-filter" style="color: #ffffff; font-size: 1.15rem;"></i>
+                                </div>
+                                <span style="background: #ecfdf5; color: #047857; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #a7f3d0;">یاریدەدەری توێژینەوە</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Elicit AI</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">یارمەتیدەرە لە دۆزینەوەی Paperە زانستییەکان و شیکردنەوەی خێرای پەڕتووک و گۆڤارە ئەکادیمییەکان.</p>
+                        </div>
+                        <a href="https://elicit.com" target="_blank" rel="noopener noreferrer" class="btn-report-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            سەردانکردنی ماڵپەڕ <i class="fa-solid fa-arrow-left icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- QuillBot -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #d97706 0%, #b45309 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(217, 119, 6, 0.18);">
+                                    <i class="fa-solid fa-wand-magic-sparkles" style="color: #ffffff; font-size: 1.15rem;"></i>
+                                </div>
+                                <span style="background: #fffbeb; color: #b45309; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #fde68a;">داڕشتنەوەی دەق</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">QuillBot Paraphraser</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">بۆ داڕشتنەوەی ڕستەکان و گۆڕینی شێوازی دەق بۆ شێوازێکی سروشتیتر و دوورکەوتنەوە لە دیاریکردنی AI.</p>
+                        </div>
+                        <a href="https://quillbot.com" target="_blank" rel="noopener noreferrer" class="btn-report-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            سەردانکردنی ماڵپەڕ <i class="fa-solid fa-arrow-left icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Scholar -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(37, 99, 235, 0.18);">
+                                    <i class="fa-solid fa-book" style="color: #ffffff; font-size: 1.15rem;"></i>
+                                </div>
+                                <span style="background: #eff6ff; color: #1d4ed8; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #bfdbfe;">سەرچاوەی فەرمی</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Google Scholar</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">گەورەترین بنکەی زانیاری بۆ دۆزینەوەی توێژینەوە، گۆڤاری زانستی و پەڕتووکە ئەکادیمییە باوەڕپێکراوەکان.</p>
+                        </div>
+                        <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="btn-report-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            سەردانکردنی ماڵپەڕ <i class="fa-solid fa-arrow-left icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ZeroGPT -->
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(220, 38, 38, 0.18);">
+                                    <i class="fa-solid fa-user-check" style="color: #ffffff; font-size: 1.15rem;"></i>
+                                </div>
+                                <span style="background: #fef2f2; color: #b91c1c; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #fecaca;">پشکنینی کۆتایی</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">ZeroGPT AI Checker</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">بۆ دڵنیابوونەوە لەوەی کە تێکستەکەت ڕێژەی بەکارهێنانی AIی تێدا نییە و وەک نووسینی مرۆڤ دەردەکەوێت.</p>
+                        </div>
+                        <a href="https://www.zerogpt.com" target="_blank" rel="noopener noreferrer" class="btn-report-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            سەردانکردنی ماڵپەڕ <i class="fa-solid fa-arrow-left icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: READY REPORT TEMPLATES & DESIGN PLATFORMS -->
+            <div class="d-flex align-items-center justify-content-between mb-4 pt-4 border-top" style="border-color: #f1f5f9 !important;">
+                <h4 class="fw-bold mb-0" style="color: #0f172a; font-size: 1.3rem; display: flex; align-items: center; gap: 12px;">
+                    <span style="width: 40px; height: 40px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); color: #16a34a; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; box-shadow: 0 4px 10px rgba(22, 163, 74, 0.12);">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                    </span>
+                    پێگەی سەرچاوەی ڕاپۆرت و قاڵبی ئامادەکراو 
+                </h4>
+            </div>
+
+           <!-- SECTION 3: READY REPORT TEMPLATES & DESIGN PLATFORMS -->
+<div class="row g-4 mb-5">
+    <!-- Slidesgo -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #d97706 0%, #92400e 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(217, 119, 6, 0.18);">
+                        <i class="fa-solid fa-display" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #fffbeb; color: #b45309; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #fde68a;">PowerPoint & Slides</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Slidesgo Slides</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">دابەزاندنی ڕاستەوخۆی سەرچاوە و تەملپێت بۆ PowerPoint و Google Slides بەبێ بەرامبەر.</p>
+            </div>
+            <a href="https://slidesgo.com" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-slidesgo w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Visme -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(37, 99, 235, 0.18);">
+                        <i class="fa-solid fa-chart-pie" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #eff6ff; color: #1d4ed8; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #bfdbfe;">داڕشتنەوەی داتا</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Visme Documents</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">تایبەت بە ڕاپۆرتە پرۆفێشناڵەکان و دروستکردنی شارت و داتای ئەکادیمی کارلێککار.</p>
+            </div>
+            <a href="https://www.visme.co/templates/reports/" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-visme w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Canva -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #00c4cc 0%, #7d2ae8 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(0, 196, 204, 0.2);">
+                        <i class="fa-solid fa-palette" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #e6fcf5; color: #00897b; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #80cbd3;">کتێبخانەی زەبەلاح</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Canva Reports</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">دەیان هەزار دیزاینی ئامادەکراوی ڕاپۆرت، سێمینار و بەەرگ بۆ داونلۆد و دەستکاریکردنی خێرا.</p>
+            </div>
+            <a href="https://www.canva.com/reports/templates/" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-canva w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Freepik Documents -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #0284c7 0%, #0f172a 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(2, 132, 199, 0.18);">
+                        <i class="fa-solid fa-layer-group" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #f0f9ff; color: #0284c7; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #bae6fd;">تەملپێتی Word & PSD</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Freepik Documents</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">دابەزاندنی بەەرگی ڕاپۆرت، بەرگ و گۆڤاری ئەکادیمی بە بەرزترین کوالێتی دیزاین.</p>
+            </div>
+            <a href="https://www.freepik.com/psd/report-cover" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-freepik w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- SlidesCarnival -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(236, 72, 153, 0.18);">
+                        <i class="fa-solid fa-file-powerpoint" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #fdf2f8; color: #be185d; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #fbcfe8;">تەملپێتی بەخۆڕایی</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">SlidesCarnival</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">دەیان دیزاینی بەخۆڕایی و خاوەن ستایلی ئەکادیمی بۆ گووگڵ سڵایدس و پاوەرپۆینت.</p>
+            </div>
+            <a href="https://www.slidescarnival.com" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-slidescarnival w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Piktochart -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #10b981 0%, #047857 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(16, 185, 129, 0.18);">
+                        <i class="fa-solid fa-chart-line" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #ecfdf5; color: #047857; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #a7f3d0;">اینفۆگرافیک و دیزاین</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Piktochart Reports</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">گونجاو بۆ گۆڕینی ڕاپۆرتە وشکە زانستییەکان بۆ ئینفۆگرافیک و شارتی سەرنجڕاکێش.</p>
+            </div>
+            <a href="https://piktochart.com/formats/reports/" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-piktochart w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Pitch -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(139, 92, 246, 0.18);">
+                        <i class="fa-solid fa-wand-magic-sparkles" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #f5f3ff; color: #6d28d9; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #ddd6fe;">پرێزنتەیشنی مۆدێرن</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Pitch Presentations</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">پلاتفۆرمێکی هاوچەرخ بۆ دروستکردنی سڵاید و پرێزنتەیشنی پڕۆفێشناڵ و هاوبەش.</p>
+            </div>
+            <a href="https://pitch.com/templates" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-pitch w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Prezi -->
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(59, 130, 246, 0.18);">
+                        <i class="fa-solid fa-expand" style="color: #ffffff; font-size: 1.15rem;"></i>
+                    </div>
+                    <span style="background: #eff6ff; color: #1d4ed8; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #bfdbfe;">کارلێککاری و جووڵە</span>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.1rem;">Prezi Presentations</h5>
+                <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">دروستکردنی سێمینار و ڕاپۆرتی بەهێز بە شێوازی زوومکردن (Zooming) و دیزاینی دیانمیکی.</p>
+            </div>
+            <a href="https://prezi.com/gallery/" target="_blank" rel="noopener noreferrer" class="btn-custom-action btn-prezi w-100">
+                <span>سەردانکردنی ماڵپەڕ</span>
+                <i class="fa-solid fa-arrow-left btn-icon"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+ 
+            <!-- SECTION 4: YOUTUBE VIDEO TUTORIALS -->
+            <div class="d-flex align-items-center justify-content-between mb-4 pt-4 border-top" style="border-color: #f1f5f9 !important;">
+                <h4 class="fw-bold mb-0" style="color: #0f172a; font-size: 1.3rem; display: flex; align-items: center; gap: 12px;">
+                    <span style="width: 40px; height: 40px; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); color: #dc2626; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; box-shadow: 0 4px 10px rgba(220, 38, 38, 0.12);">
+                        <i class="fa-brands fa-youtube"></i>
+                    </span>
+                    فێرکارییەکانی یوتیوب (Video Tutorials)
+                </h4>
+            </div>
+
+            <div class="row g-4">
+                <!-- Video Card 1 -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(220, 38, 38, 0.2);">
+                                    <i class="fa-solid fa-play" style="color: #ffffff; font-size: 1.05rem;"></i>
+                                </div>
+                                <span style="background: #fef2f2; color: #dc2626; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #fecaca;">فێرکاری ڕاپۆرت</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.05rem;">چۆنیەتی ئامادەکردنی ڕاپۆرتی زانستی</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">فێرکاری هەنگاو بە هەنگاوی ڕێکخستنی لاپەڕە، نووسینی بەڵگەنامە و بەکارهێنانی سەرچاوەکان لە MS Word.</p>
+                        </div>
+                        <a href="https://www.youtube.com/results?search_query=how+to+write+academic+report" target="_blank" rel="noopener noreferrer" class="btn-youtube-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            تەماشاکردنی ڤیدیۆ <i class="fa-brands fa-youtube icon-play"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(220, 38, 38, 0.2);">
+                                    <i class="fa-solid fa-graduation-cap" style="color: #ffffff; font-size: 1.05rem;"></i>
+                                </div>
+                                <span style="background: #fef2f2; color: #dc2626; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #fecaca;">ژێدەر و سەرچاوە</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.05rem;">دۆزینەوەی سەرچاوەی ئەکادیمی</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">تەکنیکەکانی بەکارهێنانی Google Scholar و Elicit بۆ دروستکردنی Citation و References.</p>
+                        </div>
+                        <a href="https://www.youtube.com/results?search_query=how+to+use+google+scholar+citation" target="_blank" rel="noopener noreferrer" class="btn-youtube-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            تەماشاکردنی ڤیدیۆ <i class="fa-brands fa-youtube icon-play"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="report-card h-100 p-4 d-flex flex-column justify-content-between" style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 12px rgba(220, 38, 38, 0.2);">
+                                    <i class="fa-solid fa-pen-nib" style="color: #ffffff; font-size: 1.05rem;"></i>
+                                </div>
+                                <span style="background: #fef2f2; color: #dc2626; border-radius: 100px; padding: 4px 12px; font-size: 0.74rem; font-weight: 700; border: 1px solid #fecaca;">داڕشتنەوەی دەق</span>
+                            </div>
+                            <h5 class="fw-bold mb-2" style="color: #0f172a; font-size: 1.05rem;">دیزاینکردن لە Canva</h5>
+                            <p style="font-size: 0.88rem; line-height: 1.65; color: #64748b; min-height: 52px;" class="mb-4">دروستکردنی سێمینار و بەەرگی ڕاپۆرتی بێ وێنە بە شێوەیەکی خێرا و پرۆفێشناڵ لە Canva.</p>
+                        </div>
+                        <a href="https://www.youtube.com/results?search_query=canva+report+design+tutorial" target="_blank" rel="noopener noreferrer" class="btn-youtube-glow w-100 py-2.5 fw-bold d-flex align-items-center justify-content-center gap-2" style="border-radius: 12px; text-decoration: none; font-size: 0.88rem;">
+                            تەماشاکردنی ڤیدیۆ <i class="fa-brands fa-youtube icon-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Inline CSS -->
+<style>
+   /* ==========================================
+   1. Interactive Elevate Cards
+   ========================================== */
+.report-card {
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.28s ease !important;
+}
+/* ==========================================================================
+   Design Tokens & Modern Micro-Variables
+   ========================================================================== */
+:root {
+  --btn-radius: 10px; /* Slightly tighter radius for compact feel */
+  --btn-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  --btn-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Fallback Brand Color */
+  --brand-main: #2563eb;
+}
+
+/* ==========================================================================
+   Brand Color Mapping
+   ========================================================================== */
+.btn-custom-action[data-brand="slidesgo"]      { --brand-main: #d97706; }
+.btn-custom-action[data-brand="visme"]         { --brand-main: #2563eb; }
+.btn-custom-action[data-brand="canva"]        { --brand-main: #0d9488; }
+.btn-custom-action[data-brand="freepik"]      { --brand-main: #0284c7; }
+.btn-custom-action[data-brand="slidescarnival"]{ --brand-main: #ec4899; }
+.btn-custom-action[data-brand="piktochart"]   { --brand-main: #10b981; }
+.btn-custom-action[data-brand="pitch"]        { --brand-main: #8b5cf6; }
+.btn-custom-action[data-brand="prezi"]        { --brand-main: #3b82f6; }
+
+/* ==========================================================================
+   Compact Button Base Component
+   ========================================================================== */
+.btn-custom-action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  
+  /* Reduced padding & font size for a cleaner, smaller footprint */
+  padding: 0.45rem 0.9rem;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+
+  /* Default Rest State */
+  color: var(--brand-main);
+  background: color-mix(in srgb, var(--brand-main) 8%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--brand-main) 20%, #ffffff);
+  border-radius: var(--btn-radius) !important;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  isolation: isolate;
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none !important;
+
+  transition: 
+    background 0.2s var(--btn-ease-smooth),
+    color 0.2s var(--btn-ease-smooth),
+    border-color 0.2s var(--btn-ease-smooth),
+    transform 0.25s var(--btn-ease-spring),
+    box-shadow 0.25s var(--btn-ease-smooth);
+}
+
+/* Subtle Shimmer Overlay */
+.btn-custom-action::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s var(--btn-ease-smooth);
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Enhanced Hover & Active Micro-Interactions
+   ========================================================================== */
+.btn-custom-action:hover {
+  color: #ffffff !important;
+  background: var(--brand-main);
+  border-color: var(--brand-main);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px -3px color-mix(in srgb, var(--brand-main) 45%, transparent);
+}
+
+.btn-custom-action:hover .btn-icon,
+.btn-custom-action:hover span {
+  color: #ffffff !important;
+}
+
+.btn-custom-action:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-custom-action:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--brand-main) 30%, transparent);
+  transition-duration: 0.08s;
+}
+
+.btn-custom-action:focus-visible {
+  outline: 2px solid var(--brand-main);
+  outline-offset: 2px;
+}
+
+/* RTL Arrow / Icon Alignment */
+.btn-custom-action .btn-icon {
+  font-size: 0.75rem;
+  transition: transform 0.25s var(--btn-ease-spring);
+  will-change: transform;
+}
+
+.btn-custom-action:hover .btn-icon {
+  transform: translateX(-4px); /* RTL left translation */
+}
+.report-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px -10px rgba(15, 23, 42, 0.08) !important;
+    border-color: #cbd5e1 !important;
+}
+
+/* ==========================================
+   2. Existing Buttons (Glow & YouTube)
+   ========================================== */
+
+/* Primary Glow Button */
+.btn-report-glow {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff !important;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.16);
+}
+
+.btn-report-glow:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.28);
+}
+
+.btn-report-glow .icon-arrow {
+    transition: transform 0.25s ease;
+}
+
+.btn-report-glow:hover .icon-arrow {
+    transform: translateX(-4px); /* Moves left for Kurdish RTL */
+}
+
+/* YouTube Red Glow Button */
+.btn-youtube-glow {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: #ffffff !important;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.16);
+}
+
+.btn-youtube-glow:hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.28);
+}
+
+.btn-youtube-glow .icon-play {
+    transition: transform 0.25s ease;
+}
+
+.btn-youtube-glow:hover .icon-play {
+    transform: scale(1.15);
+}
+
+/* ==========================================
+   3. New Button Designs (Option 1, 2, & 3)
+   ========================================== */
+
+/* Shared Base for New Action Buttons */
+.btn-action-pill,
+.btn-action-gradient,
+.btn-action-soft {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Icon Slide Animation on Hover (RTL-optimized) */
+.btn-action-pill .btn-icon,
+.btn-action-gradient .btn-icon,
+.btn-action-soft .btn-icon {
+    transition: transform 0.25s ease;
+}
+
+.btn-action-pill:hover .btn-icon,
+.btn-action-gradient:hover .btn-icon,
+.btn-action-soft:hover .btn-icon {
+    transform: translateX(-4px);
+}
+
+/* --- Option 1: Modern Pill Button --- */
+.btn-action-pill {
+    background-color: #ffffff;
+    color: #0284c7 !important;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.btn-action-pill:hover {
+    background-color: #f0f9ff;
+    border-color: #0284c7;
+    color: #0369a1 !important;
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12);
+    transform: translateY(-2px);
+}
+
+/* --- Option 2: Vibrant Blue Gradient --- */
+.btn-action-gradient {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff !important;
+    border: none;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.btn-action-gradient:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.38);
+    transform: translateY(-2px);
+}
+
+/* --- Option 3: Minimal Soft Background --- */
+.btn-action-soft {
+    background-color: #f1f5f9;
+    color: #0f172a !important;
+    border: 1px solid transparent;
+}
+
+.btn-action-soft:hover {
+    background-color: #e2e8f0;
+    color: #0284c7 !important;
+
+    
+}
+</style>
+<!-- FOOTER SECTION -->
+<footer class="site-footer" dir="rtl">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <!-- Column 1: Brand & About -->
+            <div class="footer-widget brand-widget">
+                <div class="footer-logo">
+                    <i style="color: #ffffff;" class="fa-solid fa-graduation-cap"></i>
+                    <span>پۆلی ١٢</span>
+                </div>
+                <p class="brand-desc">
+                    پلاتفۆرمی پۆلی ١٢ باشترین و سەرەکیترین سەرچاوەیە بۆ قوتابیانی پۆلی ١٢ لە هەرێمی کوردستان. ئامانجمان دابینکردنی کۆرس، پرسیاری وەزاری و ڕاهێنانی وردە بۆ بەدەستهێنانی نمرەی بەرز.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: پۆلی دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پۆلی دوانزە</h4>
+                <ul class="footer-links">
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: بەرەو دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">بەرەو دوانزە</h4>
+                <ul class="footer-links">
+                      <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                                                            <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: زانکۆ -->
+            <div class="footer-widget">
+                <h4 class="widget-title">زانکۆ</h4>
+                <ul class="footer-links">
+                            <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: پەیوەندی -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پەیوەندی</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">دەربارەی ئێمە</a></li>
+                    <li><a href="contact.html">پەیوەندی بکە</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER COPYRIGHT -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <p>&copy; ٢٠٢٦. هەموو مافێک پارێزراوە بۆ <b>پۆلی ١٢</b></p>
+                <p class="credit">بڵاوکراوەتەوە لەلایەن <a href="https://themewagon.com" target="_blank">AriMathers</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- ============================================================ -->
+    <!--                          JAVASCRIPT                            -->
+    <!-- ============================================================ -->
+
+    <!-- jQuery & Framework Plugins -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+    <script src="assets/js/jquery-simple-mobilemenu.js"></script>
+    <script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.inview.min.js"></script>
+    <script src="assets/js/scrolltopcontrol.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

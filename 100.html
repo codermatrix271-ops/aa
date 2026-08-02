@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Eduleb - قالبێکی خوێندنی HTML">
+    <meta name="keywords" content="خوێندن, کۆرس, ئۆنلاین, پەروەردە, HTML">
+    <title> 100</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/fonts/themify-icons.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+    <!-- Mobile menu -->
+    <link rel="stylesheet" href="assets/css/jquery-simple-mobilemenu.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ستایلی ریسپۆنسیڤ بۆ مۆبایل */
+        @media (max-width: 576px) {
+            .type-chooser {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                padding: 0 10px;
+            }
+            .type-btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+        }
+        
+        @font-face {
+            font-family: ari;
+            src: url(Rabar_021\ \(1\).ttf);
+        }
+
+        * {
+            font-family: 'ari', 'DM Sans', 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands, 
+        .ti-star, .ti-check, .ti-book, .ti-alarm-clock, .ti-user, 
+        .ti-folder, .ti-medall-alt, .ti-id-badge, .ti-file, 
+        .ti-map, .ti-mobile, .ti-email, .ti-arrow-top-right,
+        .ti-user, .ti-book, .ti-star, .ti-check {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'themify', 'FontAwesome', sans-serif !important;
+        }
+        .fa-solid, .fas { font-family: 'Font Awesome 6 Free' !important; font-weight: 900 !important; }
+        .fa-regular, .far { font-family: 'Font Awesome 6 Free' !important; font-weight: 400 !important; }
+        .fa-brands, .fab { font-family: 'Font Awesome 6 Brands' !important; font-weight: 400 !important; }
+
+        :root {
+            --math-color: #007bff;     
+            --physics-color: #6f42c1;  
+            --chemistry-color: #28a745; 
+            --biology-color: #e83e8c;   
+            --english-color: #fd7e14;   
+            --literature-color: #d63384;
+            --history-color: #8b5cf6;   
+            --geography-color: #0d9488; 
+            --economics-color: #f59e0b; 
+            --kurdi-color: #ffc107;     
+            --arabic-color: #dc3545;    
+            --religion-color: #198754;  
+            --all-color: #343a40;       
+            --type-color: #17a2b8;     
+        }
+
+        .type-chooser {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .type-btn {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            color: #475569;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+        .type-btn i { font-size: 18px; }
+        .type-btn:hover, .type-btn.active {
+            background: var(--type-color) !important;
+            border-color: var(--type-color) !important;
+            color: #ffffff !important;
+            box-shadow: 0 6px 15px rgba(48, 90, 217, 0.3);
+        }
+
+        .chooser-separator {
+            width: 60px;
+            height: 3px;
+            background: #e2e8f0;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .subject-chooser {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 45px;
+            padding: 0 15px;
+        }
+
+        .chooser-btn {
+            background: #ffffff;
+            padding: 22px 30px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 140px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .chooser-btn i { font-size: 32px; margin-bottom: 10px; transition: transform 0.2s ease, color 0.2s ease; }
+        .chooser-btn span { font-weight: 700; font-size: 16px; }
+
+        .chooser-btn.all { border: 2px solid #cbd5e1; color: #334155; }
+        .chooser-btn.all i { color: #475569; }
+        .chooser-btn.all:hover, .chooser-btn.all.active {
+            background: var(--all-color) !important; border-color: var(--all-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(52, 58, 64, 0.25);
+        }
+        .chooser-btn.all:hover i, .chooser-btn.all.active i { color: #ffffff !important; }
+        
+        .chooser-btn.math { border: 2px solid rgba(0, 123, 255, 0.3); color: var(--math-color); }
+        .chooser-btn.math i { color: var(--math-color); }
+        .chooser-btn.math:hover, .chooser-btn.math.active {
+            background: var(--math-color) !important; border-color: var(--math-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        /* --- FIX DROPDOWN OPTIONS NOT SHOWING --- */
+
+/* 1. Unhide overflow on header container */
+/* ==========================================
+   ULTIMATE MODERN DROPDOWN MENU STYLE
+========================================== */
+
+/* Parent Nav Item Alignment */
+#main-menu .nav-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 28px !important;
+}
+
+#main-menu .nav-list > li {
+    position: relative !important;
+    padding: 15px 0 !important;
+}
+
+#main-menu .nav-list > li > a {
+    text-decoration: none !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+}
+
+#main-menu .nav-list > li.has-dropdown:hover > a {
+    color: #4f46e5 !important;
+}
+
+/* Modern Dropdown Box Container */
+#main-menu .dropdown-menu,
+header.sticky #main-menu .dropdown-menu,
+.sticky #main-menu .dropdown-menu {
+    display: block !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    background-color: #ffffff !important;
+    border-radius: 18px !important;
+    min-width: 220px !important;
+    padding: 12px !important;
+    margin-top: -4px !important;
+    list-style: none !important;
+    z-index: 99999 !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12),
+                0 0 15px rgba(0, 0, 0, 0.03) !important;
+
+    /* Animation Mechanics */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(12px) scale(0.98) !important;
+    transform-origin: top right !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    pointer-events: none !important;
+}
+
+/* Smooth Fade & Slide-down on Hover */
+#main-menu .has-dropdown:hover > .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+}
+
+/* Menu Items List */
+#main-menu .dropdown-menu li {
+    display: block !important;
+    margin-bottom: 4px !important;
+}
+
+#main-menu .dropdown-menu li:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Individual Links Styling */
+#main-menu .dropdown-menu li a,
+header.sticky #main-menu .dropdown-menu li a,
+.sticky #main-menu .dropdown-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 14px !important;
+    color: #334155 !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+}
+
+/* Hover & Active Effect inside Dropdown */
+#main-menu .dropdown-menu li a:hover,
+header.sticky #main-menu .dropdown-menu li a:hover,
+.sticky #main-menu .dropdown-menu li a:hover {
+    background-color: #f0f3ff !important; /* Soft Primary Tint */
+    color: #4f46e5 !important;
+    padding-right: 18px !important; /* Interactive Indent Effect */
+}
+
+/* Optional subtle left indicator dot/line on hover */
+#main-menu .dropdown-menu li a::after {
+    content: '' !important;
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #4f46e5 !important;
+    border-radius: 50% !important;
+    opacity: 0 !important;
+    transform: scale(0) !important;
+    transition: all 0.2s ease !important;
+}
+
+#main-menu .dropdown-menu li a:hover::after {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+        .chooser-btn.math:hover i, .chooser-btn.math.active i { color: #ffffff !important; }
+
+        .chooser-btn.physics { border: 2px solid rgba(111, 66, 193, 0.3); color: var(--physics-color); }
+        .chooser-btn.physics i { color: var(--physics-color); }
+        .chooser-btn.physics:hover, .chooser-btn.physics.active {
+            background: var(--physics-color) !important; border-color: var(--physics-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
+        }
+        .chooser-btn.physics:hover i, .chooser-btn.physics.active i { color: #ffffff !important; }
+
+        .chooser-btn.chemistry { border: 2px solid rgba(40, 167, 69, 0.3); color: var(--chemistry-color); }
+        .chooser-btn.chemistry i { color: var(--chemistry-color); }
+        .chooser-btn.chemistry:hover, .chooser-btn.chemistry.active {
+            background: var(--chemistry-color) !important; border-color: var(--chemistry-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+        .chooser-btn.chemistry:hover i, .chooser-btn.chemistry.active i { color: #ffffff !important; }
+
+        .chooser-btn.biology { border: 2px solid rgba(232, 62, 140, 0.3); color: var(--biology-color); }
+        .chooser-btn.biology i { color: var(--biology-color); }
+        .chooser-btn.biology:hover, .chooser-btn.biology.active {
+            background: var(--biology-color) !important; border-color: var(--biology-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(232, 62, 140, 0.3);
+        }
+        .chooser-btn.biology:hover i, .chooser-btn.biology.active i { color: #ffffff !important; }
+
+        .chooser-btn.english { border: 2px solid rgba(253, 126, 20, 0.3); color: var(--english-color); }
+        .chooser-btn.english i { color: var(--english-color); }
+        .chooser-btn.english:hover, .chooser-btn.english.active {
+            background: var(--english-color) !important; border-color: var(--english-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(253, 126, 20, 0.3);
+        }
+        .chooser-btn.english:hover i, .chooser-btn.english.active i { color: #ffffff !important; }
+
+        .chooser-btn.literature { border: 2px solid rgba(214, 51, 132, 0.3); color: var(--literature-color); }
+        .chooser-btn.literature i { color: var(--literature-color); }
+        .chooser-btn.literature:hover, .chooser-btn.literature.active {
+            background: var(--literature-color) !important; border-color: var(--literature-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
+        }
+        .chooser-btn.literature:hover i, .chooser-btn.literature.active i { color: #ffffff !important; }
+
+        .chooser-btn.history { border: 2px solid rgba(139, 92, 246, 0.3); color: var(--history-color); }
+        .chooser-btn.history i { color: var(--history-color); }
+        .chooser-btn.history:hover, .chooser-btn.history.active {
+            background: var(--history-color) !important; border-color: var(--history-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+        .chooser-btn.history:hover i, .chooser-btn.history.active i { color: #ffffff !important; }
+
+        .chooser-btn.geography { border: 2px solid rgba(13, 148, 136, 0.3); color: var(--geography-color); }
+        .chooser-btn.geography i { color: var(--geography-color); }
+        .chooser-btn.geography:hover, .chooser-btn.geography.active {
+            background: var(--geography-color) !important; border-color: var(--geography-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3);
+        }
+        .chooser-btn.geography:hover i, .chooser-btn.geography.active i { color: #ffffff !important; }
+
+        .chooser-btn.economics { border: 2px solid rgba(245, 158, 11, 0.3); color: var(--economics-color); }
+        .chooser-btn.economics i { color: var(--economics-color); }
+        .chooser-btn.economics:hover, .chooser-btn.economics.active {
+            background: var(--economics-color) !important; border-color: var(--economics-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        .chooser-btn.economics:hover i, .chooser-btn.economics.active i { color: #ffffff !important; }
+
+        .chooser-btn.kurdi { border: 2px solid rgba(255, 193, 7, 0.5); color: #b08800; }
+        .chooser-btn.kurdi i { color: #b08800; }
+        .chooser-btn.kurdi:hover, .chooser-btn.kurdi.active {
+            background: var(--kurdi-color) !important; border-color: var(--kurdi-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+        }
+        .chooser-btn.kurdi:hover i, .chooser-btn.kurdi.active i { color: #ffffff !important; }
+
+        .chooser-btn.arabic { border: 2px solid rgba(220, 53, 69, 0.3); color: var(--arabic-color); }
+        .chooser-btn.arabic i { color: var(--arabic-color); }
+        .chooser-btn.arabic:hover, .chooser-btn.arabic.active {
+            background: var(--arabic-color) !important; border-color: var(--arabic-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+        }
+        .chooser-btn.arabic:hover i, .chooser-btn.arabic.active i { color: #ffffff !important; }
+
+        .chooser-btn.religion { border: 2px solid rgba(25, 135, 84, 0.3); color: var(--religion-color); }
+        .chooser-btn.religion i { color: var(--religion-color); }
+        .chooser-btn.religion:hover, .chooser-btn.religion.active {
+            background: var(--religion-color) !important; border-color: var(--religion-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(25, 135, 84, 0.3);
+        }
+        .chooser-btn.religion:hover i, .chooser-btn.religion.active i { color: #ffffff !important; }
+
+        .subject_card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 25px; 
+            max-width: 100%; 
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            background: #edf2f7;
+            color: #4a5568;
+        }
+
+        .site-footer {
+            direction: rtl;
+            text-align: right;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .footer-bottom {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .subject_card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+        .subject_card i.main-icon {
+            font-size: 32px;
+            width: 65px;
+            height: 65px;
+            line-height: 65px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            margin: 0 auto 18px auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .pdf_item.math:hover .main-icon { background: rgba(0, 123, 255, 0.1); }
+        .pdf_item.physics:hover .main-icon { background: rgba(111, 66, 193, 0.1); }
+        .pdf_item.chemistry:hover .main-icon { background: rgba(40, 167, 69, 0.1); }
+        .pdf_item.biology:hover .main-icon { background: rgba(232, 62, 140, 0.1); }
+        .pdf_item.english:hover .main-icon { background: rgba(253, 126, 20, 0.1); }
+        .pdf_item.literature:hover .main-icon { background: rgba(214, 51, 132, 0.1); }
+        .pdf_item.history:hover .main-icon { background: rgba(139, 92, 246, 0.1); }
+        .pdf_item.geography:hover .main-icon { background: rgba(13, 148, 136, 0.1); }
+        .pdf_item.economics:hover .main-icon { background: rgba(245, 158, 11, 0.1); }
+        .pdf_item.kurdi:hover .main-icon { background: rgba(255, 193, 7, 0.1); }
+        .pdf_item.arabic:hover .main-icon { background: rgba(220, 53, 69, 0.1); }
+        .pdf_item.religion:hover .main-icon { background: rgba(25, 135, 84, 0.1); }
+
+        .subject_card h3 { font-size: 20px; font-weight: 700; color: #1a202c; margin-bottom: 6px; }
+        .subject_card p { font-size: 14px; color: #718096; margin-bottom: 20px; }
+
+        .btn_viewer {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 24px;
+            border-radius: 50px;
+            background: #F7FAFC;
+            color: #4A5568;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+        .btn_viewer i { font-size: 12px; }
+        .btn_viewer:hover { color: #fff !important; border-color: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .pdf_item.math .btn_viewer:hover { background: var(--math-color); }
+        .pdf_item.physics .btn_viewer:hover { background: var(--physics-color); }
+        .pdf_item.chemistry .btn_viewer:hover { background: var(--chemistry-color); }
+        .pdf_item.biology .btn_viewer:hover { background: var(--biology-color); }
+        .pdf_item.english .btn_viewer:hover { background: var(--english-color); }
+        .pdf_item.kurdi .btn_viewer:hover { background: var(--kurdi-color); }
+        .pdf_item.arabic .btn_viewer:hover { background: var(--arabic-color); }
+        .pdf_item.religion .btn_viewer:hover { background: var(--religion-color); }
+
+        @media (max-width: 576px) {
+            .type-btn { padding: 10px 22px; font-size: 14px; }
+            .subject-chooser { gap: 10px; }
+            .chooser-btn { padding: 15px 20px; border-radius: 14px; min-width: 105px; }
+            .chooser-btn i { font-size: 24px; margin-bottom: 6px; }
+            .chooser-btn span { font-size: 13px; }
+            .subject_card { padding: 35px 15px 20px 15px; margin-bottom: 15px; border-radius: 16px; }
+            .subject_card i.main-icon { font-size: 24px; width: 50px; height: 50px; line-height: 50px; margin-bottom: 10px; }
+            .subject_card h3 { font-size: 16px; margin-bottom: 4px; }
+            .subject_card p { font-size: 13px; margin-bottom: 12px; }
+            .btn_viewer { padding: 5px 14px; font-size: 11px; gap: 4px; }
+            .card-badge { top: 10px; right: 10px; font-size: 10px; padding: 2px 8px; }
+        }
+
+        .type-btn:hover {
+            background-color: #007bff !important;
+            border-color: #007bff !important;
+            color: #ffffff !important;
+        }
+        .type-btn.active {
+            background-color: #007bff !important;
+            border-color: #007bff !important;
+            color: #ffffff !important;
+        }
+
+        /* Quiz styles */
+        .quiz-box {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+        }
+        .quiz-option {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            padding: 16px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .quiz-option.selected {
+            background: #e0e7ff;
+            border-color: #4f46e5;
+            color: #4f46e5;
+        }
+
+        .premium-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+        .premium-card:hover {
+            transform: translateY(-4px);
+            border-color: #4f46e5;
+            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.12);
+        }
+
+        .pdf-badge-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            transition: all 0.2s ease;
+        }
+        .premium-card:hover .action-btn {
+            background: #4f46e5;
+            color: #ffffff;
+            border-color: #4f46e5;
+            transform: scale(1.05);
+        }
+/* --- FOOTER 5-COLUMN GRID FIX --- */
+.site-footer {
+    background-color: #0b1120 !important;
+    color: #94a3b8 !important;
+    padding: 60px 0 0 0 !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: inherit;
+}
+
+/* Transform Grid to exactly 5 equal columns */
+.site-footer .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr !important; /* ستوونی یەکەم کەمێک بەرینتر بۆ لوگۆ */
+    gap: 30px !important;
+    align-items: start !important;
+}
+
+/* Responsive Grid for Mobile & Tablets */
+@media (max-width: 991px) {
+    .site-footer .footer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .site-footer .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Brand & Logo */
+.site-footer .footer-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin-bottom: 15px !important;
+}
+
+.site-footer .footer-logo i {
+    color: #ffffff !important;
+    font-size: 26px !important;
+}
+
+.site-footer .brand-desc {
+    color: #94a3b8 !important;
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Titles */
+.site-footer .widget-title {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.site-footer .widget-title::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -6px !important;
+    right: 0 !important;
+    width: 30px !important;
+    height: 2px !important;
+    background-color: #6366f1 !important;
+}
+
+/* Links List */
+.site-footer .footer-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.site-footer .footer-links li {
+    margin-bottom: 12px !important;
+}
+
+.site-footer .footer-links a {
+    color: #cbd5e1 !important;
+    text-decoration: none !important;
+    font-size: 13.5px !important;
+    transition: all 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.site-footer .footer-links a:hover {
+    color: #818cf8 !important;
+    transform: translateX(-4px) !important;
+}
+
+/* Social Icons */
+.site-footer .footer-socials {
+    display: flex !important;
+    gap: 10px !important;
+}
+
+.site-footer .footer-socials a {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.site-footer .footer-socials a:hover {
+    background: #6366f1 !important;
+    border-color: #6366f1 !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Copyright Bottom Bar */
+.site-footer .footer-bottom {
+    margin-top: 50px !important;
+    padding: 20px 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background-color: #060a12 !important;
+}
+
+.site-footer .footer-bottom-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    font-size: 13px !important;
+    color: #64748b !important;
+}
+
+.site-footer .footer-bottom-content p {
+    margin: 0 !important;
+}
+
+.site-footer .footer-bottom-content a {
+    color: #818cf8 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+        .back-btn-container {
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+            padding: 10px 22px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .back-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .count-card {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+            border-radius: 16px;
+        }
+        .count-card:hover {
+            border-color: #4f46e5;
+            background: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.08);
+        }
+
+        .custom-tabs .nav-link {
+            background: transparent;
+            color: #64748b;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            padding: 10px 24px;
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+        }
+        .custom-tabs .nav-link:hover {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+        .custom-tabs .nav-link.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.25);
+        }
+    </style>
+</head>
+<body>
+   <div id="navigation" class="navbar-light bg-faded site-navigation navigation2">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Logo Section -->
+            <div class="col-20 align-self-center">
+                <div class="site-logo">
+                    <a href="index.html"><img src="assets/img/logo.png" alt="Grade12+"></a>          				
+                </div>
+            </div><!--- END Col -->
+        <!-- Main Desktop Menu -->
+<div class="col-60 d-flex">
+    <nav id="main-menu">
+        <ul class="nav-list">
+            <li><a href="about.html">دەربارە</a></li>                                 
+            
+            <li class="has-dropdown">
+                <a href="#">پۆلی دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">بەرەو دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                     <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">زانکۆ</a>
+                <ul class="dropdown-menu">                                        
+                                  <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </li>                            
+            
+            <li><a href="contact.html">پەیوەندی</a></li>
+        </ul>
+    </nav>
+</div><!-- END Col -->
+                <ul class="mobile_menu">						
+                    <li><a href="about.html">دەربارە</a></li>						
+                    <li><a href="#">پۆلی دوانزە</a>
+                        <ul class="sub-menu">										
+                            <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان </a></li>
+                            <li><a href="kurtkrawa.html"> کورتکراوەکان</a></li>
+                            <li><a href="taqikrdnawakan.html"> تاقیكردنه‌وه‌كان </a></li>
+                            <li><a href="quiz.html">کویز (جیاکراوە) </a></li>								
+                        </ul>
+                    </li>
+                    <li><a href="#">بەرەو دوانزە</a>
+                        <ul class="sub-menu">									
+                             <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                 <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>				
+                        </ul>
+                    </li>			
+                    <li><a href="#">زانکۆ</a>
+                        <ul class="sub-menu">										
+                                           <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                        </ul>
+                    </li>						
+                    <li><a href="contact.html">پەیوەندی</a></li>
+                </ul>			
+            </div>
+        </div>
+    </div> 	  
+
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1> 100 </h1>
+                    <ul>
+                        <li><a href="index.html">پۆلی 12</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>  
+   
+<style>
+    :root {
+        --primary-color: #4f46e5;
+        --accent-color: #f59e0b;
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
+        --radius: 20px;
+        --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .blog-page {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 2.2;
+        padding: 40px 0;
+    }
+
+    .blog-page .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+    .blog-page .main-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    @media (min-width: 1024px) {
+        .blog-page .main-grid {
+            grid-template-columns: 2.8fr 1.2fr;
+        }
+    }
+
+    .blog-page .card-box {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 40px;
+        box-shadow: var(--shadow-md);
+        margin-bottom: 35px;
+        border: 1px solid var(--border-color);
+    }
+
+    .blog-page .arti_img_two {
+        overflow: hidden;
+        border-radius: var(--radius);
+        margin-bottom: 30px;
+    }
+
+    .blog-page .arti_img_two img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        display: block;
+        border-radius: var(--radius);
+    }
+
+    .blog-page .arti_content p.lead {
+        font-size: 1.35rem;
+        color: #1e293b;
+        font-weight: 700;
+        border-right: 6px solid var(--primary-color);
+        padding-right: 20px;
+        margin-bottom: 35px;
+        background: #f1f5f9;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .blog-page h2.main-title {
+        color: #0f172a;
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #1e1b4b, #4f46e5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .blog-page .advice-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 25px;
+    }
+
+    .blog-page .advice-card {
+        background: #f8fafc;
+        border-radius: 16px;
+        padding: 30px;
+        border: 1px solid var(--border-color);
+        border-right: 6px solid var(--primary-color);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .blog-page .advice-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        background: #ffffff;
+    }
+
+    .blog-page .advice-card .num {
+        display: inline-block;
+        background: var(--primary-color);
+        color: #fff;
+        font-weight: 800;
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+
+    .blog-page .advice-card h3 {
+        margin: 0 0 15px 0;
+        color: #0f172a;
+        font-size: 1.3rem;
+        font-weight: 800;
+    }
+
+    .blog-page .advice-card p {
+        margin: 0 0 15px 0;
+        color: #334155;
+        font-size: 1.05rem;
+        text-align: justify;
+    }
+
+    .blog-page .advice-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    .blog-page .advice-card:target,
+    .blog-page .faq-card:target {
+        background: #eef2ff;
+        border-right-color: var(--accent-color);
+        box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.4);
+    }
+
+    .blog-page .faq-section {
+        margin-top: 50px;
+    }
+
+    .blog-page .faq-card {
+        background: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 25px;
+        border-right: 6px solid var(--accent-color);
+        transition: all 0.3s ease;
+    }
+
+    .blog-page .faq-card h3 {
+        margin: 0 0 15px 0;
+        color: #0f172a;
+        font-size: 1.35rem;
+    }
+
+    .blog-page .faq-card p {
+        margin: 0 0 15px 0;
+        color: #334155;
+        font-size: 1.05rem;
+        text-align: justify;
+    }
+
+    .blog-page .challenges-section {
+        background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+        color: #ffffff;
+        border-radius: var(--radius);
+        padding: 40px;
+        margin: 40px 0 10px 0;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .blog-page .challenges-section h3 {
+        color: var(--accent-color);
+        font-size: 1.7rem;
+        margin-top: 0;
+    }
+
+    .blog-page .challenge-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    @media (min-width: 768px) {
+        .blog-page .challenge-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .blog-page .challenge-item {
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(12px);
+        padding: 25px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .blog-page .challenge-item span.icon {
+        background: var(--accent-color);
+        color: #000;
+        font-weight: bold;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+        margin-top: 3px;
+    }
+
+    .blog-page .challenge-item-text h4 {
+        margin: 0 0 10px 0;
+        font-size: 1.15rem;
+        color: #fff;
+    }
+
+    .blog-page .challenge-item-text p {
+        margin: 0;
+        font-size: 1rem;
+        color: #cbd5e1;
+        line-height: 1.8;
+    }
+
+    .blog-page .sidebar-post {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 30px;
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 30px;
+        border: 1px solid var(--border-color);
+    }
+
+    .blog-page .sidebar_title h4 {
+        margin: 0 0 20px 0;
+        font-size: 1.25rem;
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f1f5f9;
+    }
+
+    .blog-page .sidebar_title h4::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        right: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    .blog-page .single_popular {
+        padding: 14px 0;
+        border-bottom: 1px dashed var(--border-color);
+    }
+
+    .blog-page .single_popular:last-child { border-bottom: none; }
+
+    .blog-page .single_popular a {
+        text-decoration: none;
+        color: var(--text-main);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.2s;
+        display: block;
+    }
+
+    .blog-page .single_popular a:hover {
+        color: var(--primary-color);
+    }
+
+    .blog-page .single_category ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .blog-page .single_category li {
+        margin-bottom: 14px;
+    }
+
+    .blog-page .single_category a {
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 1rem;
+    }
+
+    .blog-page .single_category a:hover {
+        color: var(--primary-color);
+    }
+
+    .blog-page .form-control {
+        width: 100%;
+        padding: 16px 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        font-family: inherit;
+        box-sizing: border-box;
+        outline: none;
+        background: #f8fafc;
+        font-size: 1rem;
+    }
+	.big-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.big-icon {
+    font-size: 80px;
+    color: #38bdf8;
+}
+.arti_content {
+        margin-bottom: 30px;
+    }
+
+    .arti_content p.lead {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.1rem;
+        line-height: 2;
+        color: #cbd5e1;
+        background: rgba(30, 41, 59, 0.7);
+        padding: 20px 24px;
+        margin: 0;
+        border-radius: 8px;
+        border-right: 6px solid #6366f1; /* Indigo Bar */
+        letter-spacing: 0.2px;
+    }
+
+    @media (max-width: 768px) {
+        .arti_content p.lead {
+            font-size: 0.98rem;
+            padding: 16px;
+            text-align: right;
+        }
+    }
+</style>
+<!-- ===== سێکشنی ڕێنماییەکانی پۆلی دوازدە ===== -->
+<section class="grade12-video-section" dir="rtl">
+    <div class="container">
+        
+        <!-- سەرپەڕە -->
+        <div class="section-header">
+            <div class="icon-box">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2>چۆن لە <span>پۆلی دوازدە</span> ١٠٠ بهێنین؟</h2>
+            <p class="subtitle">
+                هێنانی نمرەی <span>١٠٠</span> بە ڕێکەوت نایەت دی! بۆ بەدەستهێنانی بەرزترین نمرە، پێویستە لە دەق و ڕاهێنانەکانی کتێبی خوێندن تێبگەیت و شیکاری پرسیارە وزارییەکان بکەیت.
+            </p>
+        </div>
+
+
+        <!-- تۆڕی کارتەکان (Video Grid) -->
+        <div class="video-grid" id="videoGrid">
+
+            <!-- ⭐ کارتی سەرەکی و گەورە (MAIN FEATURED CARD) ⭐ -->
+            <div class="video-item featured-item" data-category="general">
+                <div class="featured-badge">
+                    <i class="fas fa-star"></i> کارتی سەرەکی
+                </div>
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                   <div class="info">
+                        <h4>چۆن لە دوانزە ١٠٠ بهێنین؟</h4>
+                        <p class="featured-subtext">گرنگترین ڕێنیشاندەر و خشتەی سەرکەوتن بۆ بەدەستهێنانی بەرزترین نمرە.</p>
+                        <a href="https://youtu.be/yRo8a34pg4w?si=PJfV_-wGC8Qt3SM6" target="_blank" rel="noopener noreferrer" class="video-link main-btn">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. زیندە -->
+            <div class="video-item" data-category="biology">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="info">
+                        <h4>زیندەزانی (زیندە)</h4>
+                        <a href="https://youtu.be/S-dbdNqg7to?si=PPqy7aDj4473Jxmu" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. بیرکاری -->
+            <div class="video-item" data-category="math">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="info">
+                        <h4>بیرکاری</h4>
+                        <a href="https://youtu.be/qJ9NVxWSCso?si=7pr5m_csjY0bOyUZ" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. کیمیا -->
+            <div class="video-item" data-category="chemistry">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="info">
+                        <h4>کیمیا</h4>
+                        <a href="https://youtu.be/Id1WGNB8ATM?si=49vMU1HKVxX4uNrG" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. فیزیا -->
+            <div class="video-item" data-category="physics">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="info">
+                        <h4>فیزیا</h4>
+                        <a href="https://youtu.be/MkYTUjgh_pA?si=1XljcXLB5TsHS7Fv" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. عەرەبی -->
+            <div class="video-item" data-category="arabic">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="info">
+                        <h4>عەرەبی</h4>
+                        <a href="https://youtu.be/XktHi_0qURY?si=cLtxRdk_fyKKsP16" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. بیرکاری (بەشی دووەم) -->
+            <div class="video-item" data-category="math">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="info">
+                        <h4>بیرکاری</h4>
+                        <a href="https://youtu.be/qyr_tPBCc4Y?si=5u71Z8QRUH7Wtogf" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. کوردی -->
+            <div class="video-item" data-category="kurdish">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="info">
+                        <h4>کوردی</h4>
+                        <a href="https://youtu.be/rs9tnqnCigE?si=DfjLArnsCwG73j-F" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. ئینگلیزی -->
+            <div class="video-item" data-category="english">
+                <div class="video-desc">
+                    <div class="subject-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="info">
+                        <h4>ئینگلیزی (English)</h4>
+                        <a href="https://youtu.be/RIswGXOx5bI?si=_LYrx__r8-adu7zW" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fab fa-youtube"></i> سەیری ڤیدیۆ بکە
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== UPDATED MODERN CSS ===== -->
+<style>
+    /* Global Variables for Easy Customization */
+    :root {
+        --primary-navy: #0b2a4a;
+        --secondary-navy: #183e65;
+        --accent-gold: #fbbf24;
+        --accent-gold-hover: #f59e0b;
+        --yt-red: #ff0000;
+        --yt-red-dark: #d90000;
+        --text-dark: #1e293b;
+        --text-muted: #64748b;
+        --bg-main: #f8fafc;
+        --card-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --shadow-sm: 0 2px 8px rgba(11, 42, 74, 0.04);
+        --shadow-md: 0 10px 25px -5px rgba(11, 42, 74, 0.08), 0 8px 10px -6px rgba(11, 42, 74, 0.04);
+        --shadow-lg: 0 20px 35px -10px rgba(11, 42, 74, 0.12);
+        --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .grade12-video-section {
+        padding: 50px 0;
+        background: var(--bg-main);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    .grade12-video-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Section Header */
+    .section-header {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .section-header .icon-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy));
+        width: 68px;
+        height: 68px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+        box-shadow: 0 10px 25px rgba(11, 42, 74, 0.2);
+        transition: var(--transition);
+    }
+
+    .section-header .icon-box:hover {
+        transform: translateY(-3px) rotate(5deg) scale(1.05);
+        box-shadow: 0 14px 28px rgba(11, 42, 74, 0.28);
+    }
+
+    .section-header .icon-box i {
+        font-size: 1.8rem;
+        color: var(--accent-gold);
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary-navy);
+        margin-bottom: 14px;
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+    }
+
+    .section-header h2 span {
+        color: var(--accent-gold);
+        background: var(--primary-navy);
+        padding: 4px 16px;
+        border-radius: 30px;
+        display: inline-block;
+        box-shadow: 0 4px 12px rgba(11, 42, 74, 0.15);
+    }
+
+    .section-header .subtitle {
+        font-size: 1rem;
+        color: var(--text-muted);
+        max-width: 720px;
+        margin: 0 auto;
+        line-height: 1.8;
+    }
+
+    /* Category Filter Tags */
+    .filter-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 35px;
+        width: 100%;
+    }
+
+    .subject-tags-container {
+        width: 100%;
+        overflow-x: auto;
+        padding: 8px 4px 14px 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .subject-tags-container::-webkit-scrollbar {
+        height: 6px;
+    }
+    .subject-tags-container::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+    }
+
+    .subject-tags {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        justify-content: flex-start;
+        min-width: max-content;
+    }
+
+    .tag-btn {
+        background: var(--card-bg);
+        padding: 11px 20px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #475569;
+        border: 1.5px solid var(--border-color);
+        transition: var(--transition);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        white-space: nowrap;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .tag-btn i {
+        color: #d97706;
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+
+    .tag-btn:hover {
+        background: #f1f5f9;
+        border-color: #cbd5e1;
+        transform: translateY(-2px);
+        color: var(--primary-navy);
+    }
+
+    .tag-btn:hover i {
+        transform: scale(1.15);
+    }
+
+    .tag-btn.active {
+        background: var(--primary-navy);
+        color: #ffffff;
+        border-color: var(--primary-navy);
+        box-shadow: 0 8px 20px rgba(11, 42, 74, 0.25);
+    }
+
+    .tag-btn.active i {
+        color: var(--accent-gold);
+    }
+
+    /* Video Grid */
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 22px;
+    }
+
+    /* Base Card Styling */
+    .video-item {
+        background: var(--card-bg);
+        border-radius: 18px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .video-item.hide { 
+        display: none !important; 
+    }
+
+    .video-item:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-md);
+        border-color: #cbd5e1;
+    }
+
+    .video-desc {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .video-desc .subject-icon {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        background: #fffbeb;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid rgba(251, 191, 36, 0.4);
+        transition: var(--transition);
+    }
+
+    .video-item:hover .subject-icon {
+        background: #fef3c7;
+        transform: scale(1.08) rotate(-4deg);
+        border-color: var(--accent-gold);
+    }
+
+    .video-desc .subject-icon i {
+        font-size: 1.35rem;
+        color: #d97706;
+        transition: var(--transition);
+    }
+
+    .video-desc .info { 
+        flex-grow: 1; 
+    }
+
+    .video-desc .info h4 {
+        font-size: 1.02rem;
+        font-weight: 700;
+        color: var(--primary-navy);
+        margin: 0 0 10px 0;
+        transition: var(--transition);
+    }
+
+    .video-item:hover .info h4 {
+        color: #1e40af;
+    }
+
+    /* Buttons Style & Hover Animations */
+    .video-link {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: linear-gradient(135deg, #ff1a1a, var(--yt-red));
+        padding: 8px 18px;
+        border-radius: 20px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition);
+        box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .video-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: 0.5s;
+    }
+
+    .video-link:hover::before {
+        left: 100%;
+    }
+
+    .video-link:hover {
+        background: linear-gradient(135deg, var(--yt-red), var(--yt-red-dark));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(255, 0, 0, 0.35);
+    }
+
+    .video-link i {
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+
+    .video-link:hover i {
+        transform: scale(1.2);
+    }
+
+    /* ⭐ Featured Main Card Styling ⭐ */
+    .video-item.featured-item {
+        grid-column: 1 / -1;
+        background: linear-gradient(135deg, #ffffff 0%, #fffdf5 100%);
+        border: 2px solid var(--accent-gold);
+        border-radius: 22px;
+        box-shadow: 0 12px 30px rgba(251, 191, 36, 0.18);
+    }
+
+    .video-item.featured-item:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg), 0 0 25px rgba(251, 191, 36, 0.28);
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        background: var(--primary-navy);
+        color: var(--accent-gold);
+        font-size: 0.8rem;
+        font-weight: 800;
+        padding: 6px 14px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 4px 10px rgba(11, 42, 74, 0.15);
+    }
+
+    .featured-item .video-desc {
+        padding: 28px;
+        gap: 22px;
+    }
+
+    .featured-item .subject-icon {
+        width: 72px;
+        height: 72px;
+        background: #fef9c3;
+        border-radius: 20px;
+        border: 2px solid var(--accent-gold-hover);
+    }
+
+    .featured-item .subject-icon i {
+        font-size: 2.2rem;
+        color: #b45309;
+    }
+
+    .featured-item .info h4 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary-navy);
+        margin-bottom: 8px;
+    }
+
+    .featured-subtext {
+        font-size: 0.95rem;
+        color: #475569;
+        margin: 0 0 16px 0;
+        line-height: 1.6;
+    }
+
+    .video-link.main-btn {
+        font-size: 0.98rem;
+        padding: 12px 26px;
+        border-radius: 30px;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 769px) {
+        .subject-tags { 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+    }
+
+    @media (max-width: 640px) {
+        .grade12-video-section { padding: 35px 0; }
+        .section-header h2 { font-size: 1.5rem; }
+        .featured-item .video-desc { 
+            flex-direction: column; 
+            text-align: center;
+            align-items: center;
+            padding: 22px 18px; 
+            gap: 16px; 
+        }
+        .featured-badge {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: inline-flex;
+            margin: 14px auto 0 auto;
+        }
+        .featured-item .info h4 { font-size: 1.25rem; }
+        .featured-item .subject-icon { width: 60px; height: 60px; }
+        .featured-item .subject-icon i { font-size: 1.7rem; }
+        .video-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    let currentCategory = 'all';
+
+    function filterCategory(category, element) {
+        currentCategory = category;
+        
+        document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+        element.classList.add('active');
+
+        const items = document.querySelectorAll('.video-item');
+
+        items.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+
+            if (currentCategory === 'all' || itemCategory === currentCategory || itemCategory === 'general') {
+                item.classList.remove('hide');
+            } else {
+                item.classList.add('hide');
+            }
+        });
+    }
+</script>
+<!-- FOOTER SECTION -->
+<footer class="site-footer" dir="rtl">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <!-- Column 1: Brand & About -->
+            <div class="footer-widget brand-widget">
+                <div class="footer-logo">
+                    <i style="color: #ffffff;" class="fa-solid fa-graduation-cap"></i>
+                    <span>پۆلی ١٢</span>
+                </div>
+                <p class="brand-desc">
+                    پلاتفۆرمی پۆلی ١٢ باشترین و سەرەکیترین سەرچاوەیە بۆ قوتابیانی پۆلی ١٢ لە هەرێمی کوردستان. ئامانجمان دابینکردنی کۆرس، پرسیاری وەزاری و ڕاهێنانی وردە بۆ بەدەستهێنانی نمرەی بەرز.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: پۆلی دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پۆلی دوانزە</h4>
+                <ul class="footer-links">
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: بەرەو دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">بەرەو دوانزە</h4>
+                <ul class="footer-links">
+                      <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                                                            <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: زانکۆ -->
+            <div class="footer-widget">
+                <h4 class="widget-title">زانکۆ</h4>
+                <ul class="footer-links">
+                            <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: پەیوەندی -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پەیوەندی</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">دەربارەی ئێمە</a></li>
+                    <li><a href="contact.html">پەیوەندی بکە</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER COPYRIGHT -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <p>&copy; ٢٠٢٦. هەموو مافێک پارێزراوە بۆ <b>پۆلی ١٢</b></p>
+                <p class="credit">بڵاوکراوەتەوە لەلایەن <a href="https://themewagon.com" target="_blank">AriMathers</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+    <script src="assets/js/jquery-simple-mobilemenu.js"></script>
+    <script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.inview.min.js"></script>
+    <script src="assets/js/scrolltopcontrol.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

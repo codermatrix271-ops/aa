@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Eduleb - قالبێکی خوێندنی HTML">
+    <meta name="keywords" content="خوێندن, کۆرس, ئۆنلاین, پەروەردە, HTML">
+    <title> تاقیكردنه‌وه‌كان </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/fonts/themify-icons.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+    <!-- Mobile menu -->
+    <link rel="stylesheet" href="assets/css/jquery-simple-mobilemenu.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+
+        /* ستایلی ریسپۆنسیڤ بۆ مۆبایل */
+@media (max-width: 576px) {
+    .type-chooser {
+        display: flex;
+        flex-direction: column; /* ڕیزکردنی دوگمەکان لەسەر یەک */
+        align-items: stretch;   /* پڕکردنەوەی پانی شاشەکە */
+        gap: 8px;               /* بۆشایی کەم لە نێوانیان */
+        padding: 0 10px;        /* بۆشایی لە لێوارەکان */
+    }
+
+    .type-btn {
+        width: 100%;            /* هەموو پانی شاشەکە دادەپۆشێت */
+        justify-content: center; /* نوسین و ئایکۆنەکە لە ناوەڕاست دەبێت */
+        font-size: 14px;        /* کەمێک بچووککردنەوەی فۆنت بۆ ڕێکی */
+        padding: 12px 15px;
+    }
+}
+        @font-face {
+            font-family: ari;
+            src: url(Rabar_021\ \(1\).ttf);
+        }
+
+        /* Apply 'ari' as primary font across the entire site */
+        * {
+            font-family: 'ari', 'DM Sans', 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        /* Fix icon issues - ensure icons use their own font */
+        .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands, 
+        .ti-star, .ti-check, .ti-book, .ti-alarm-clock, .ti-user, 
+        .ti-folder, .ti-medall-alt, .ti-id-badge, .ti-file, 
+        .ti-map, .ti-mobile, .ti-email, .ti-arrow-top-right,
+        .ti-user, .ti-book, .ti-star, .ti-check {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'themify', 'FontAwesome', sans-serif !important;
+        }
+
+        .fa-solid, .fas { font-family: 'Font Awesome 6 Free' !important; font-weight: 900 !important; }
+        .fa-regular, .far { font-family: 'Font Awesome 6 Free' !important; font-weight: 400 !important; }
+        .fa-brands, .fab { font-family: 'Font Awesome 6 Brands' !important; font-weight: 400 !important; }
+        .fa-x { font-family: 'Font Awesome 6 Brands' !important; font-weight: 400 !important; }
+
+        /* -------------------------------------------------------------
+           ستایلی بەشی مەلزەمەکان و دوگمەکان (نوێکراوە)
+        ------------------------------------------------------------- */
+        :root {
+            --math-color: #007bff;     
+            --physics-color: #6f42c1;  
+            --chemistry-color: #28a745; 
+            --biology-color: #e83e8c;   
+            --english-color: #fd7e14;   
+            --literature-color: #d63384;
+            --history-color: #8b5cf6;   
+            --geography-color: #0d9488; 
+            --economics-color: #f59e0b; 
+            --kurdi-color: #ffc107;     
+            --arabic-color: #dc3545;    
+            --religion-color: #198754;  
+            --all-color: #343a40;       
+            --type-color: #17a2b8;     
+        }
+
+        /* فلتەری دوگمەی گەورە بۆ جۆری کتێب/مەلزەمە */
+        .type-chooser {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .type-btn {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            color: #475569;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .type-btn i { font-size: 18px; }
+        
+        .type-btn:hover, .type-btn.active {
+            background: var(--type-color) !important;
+            border-color: var(--type-color) !important;
+            color: #ffffff !important;
+            box-shadow: 0 6px 15px rgba(48, 90, 217, 0.3);
+        }
+
+        /* هێڵی جیاکەرەوەی نێوان دوو جۆرە فلتەرەکە */
+        .chooser-separator {
+            width: 60px;
+            height: 3px;
+            background: #e2e8f0;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        /* ستایلی مۆدێرنی دوگمەکانی هەڵبژاردنی بابەت */
+        .subject-chooser {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 45px;
+            padding: 0 15px;
+        }
+
+        .chooser-btn {
+            background: #ffffff;
+            padding: 22px 30px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 140px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .chooser-btn i { font-size: 32px; margin-bottom: 10px; transition: transform 0.2s ease, color 0.2s ease; }
+        .chooser-btn span { font-weight: 700; font-size: 16px; }
+
+        /* گۆڕانی باکگراوند لە کاتی Hover/Active بۆ دوگمەکان */
+        .chooser-btn.all { border: 2px solid #cbd5e1; color: #334155; }
+        .chooser-btn.all i { color: #475569; }
+        .chooser-btn.all:hover, .chooser-btn.all.active {
+            background: var(--all-color) !important; border-color: var(--all-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(52, 58, 64, 0.25);
+        }
+        .chooser-btn.all:hover i, .chooser-btn.all.active i { color: #ffffff !important; }
+        
+        .chooser-btn.math { border: 2px solid rgba(0, 123, 255, 0.3); color: var(--math-color); }
+        .chooser-btn.math i { color: var(--math-color); }
+        .chooser-btn.math:hover, .chooser-btn.math.active {
+            background: var(--math-color) !important; border-color: var(--math-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        }
+        .chooser-btn.math:hover i, .chooser-btn.math.active i { color: #ffffff !important; }
+
+        .chooser-btn.physics { border: 2px solid rgba(111, 66, 193, 0.3); color: var(--physics-color); }
+        .chooser-btn.physics i { color: var(--physics-color); }
+        .chooser-btn.physics:hover, .chooser-btn.physics.active {
+            background: var(--physics-color) !important; border-color: var(--physics-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3);
+        }
+        .chooser-btn.physics:hover i, .chooser-btn.physics.active i { color: #ffffff !important; }
+
+        .chooser-btn.chemistry { border: 2px solid rgba(40, 167, 69, 0.3); color: var(--chemistry-color); }
+        .chooser-btn.chemistry i { color: var(--chemistry-color); }
+        .chooser-btn.chemistry:hover, .chooser-btn.chemistry.active {
+            background: var(--chemistry-color) !important; border-color: var(--chemistry-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+        .chooser-btn.chemistry:hover i, .chooser-btn.chemistry.active i { color: #ffffff !important; }
+
+        .chooser-btn.biology { border: 2px solid rgba(232, 62, 140, 0.3); color: var(--biology-color); }
+        .chooser-btn.biology i { color: var(--biology-color); }
+        .chooser-btn.biology:hover, .chooser-btn.biology.active {
+            background: var(--biology-color) !important; border-color: var(--biology-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(232, 62, 140, 0.3);
+        }
+        .chooser-btn.biology:hover i, .chooser-btn.biology.active i { color: #ffffff !important; }
+
+        .chooser-btn.english { border: 2px solid rgba(253, 126, 20, 0.3); color: var(--english-color); }
+        .chooser-btn.english i { color: var(--english-color); }
+        .chooser-btn.english:hover, .chooser-btn.english.active {
+            background: var(--english-color) !important; border-color: var(--english-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(253, 126, 20, 0.3);
+        }
+        .chooser-btn.english:hover i, .chooser-btn.english.active i { color: #ffffff !important; }
+
+        .chooser-btn.literature { border: 2px solid rgba(214, 51, 132, 0.3); color: var(--literature-color); }
+        .chooser-btn.literature i { color: var(--literature-color); }
+        .chooser-btn.literature:hover, .chooser-btn.literature.active {
+            background: var(--literature-color) !important; border-color: var(--literature-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
+        }
+        .chooser-btn.literature:hover i, .chooser-btn.literature.active i { color: #ffffff !important; }
+
+        .chooser-btn.history { border: 2px solid rgba(139, 92, 246, 0.3); color: var(--history-color); }
+        .chooser-btn.history i { color: var(--history-color); }
+        .chooser-btn.history:hover, .chooser-btn.history.active {
+            background: var(--history-color) !important; border-color: var(--history-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+        .chooser-btn.history:hover i, .chooser-btn.history.active i { color: #ffffff !important; }
+
+        .chooser-btn.geography { border: 2px solid rgba(13, 148, 136, 0.3); color: var(--geography-color); }
+        .chooser-btn.geography i { color: var(--geography-color); }
+        .chooser-btn.geography:hover, .chooser-btn.geography.active {
+            background: var(--geography-color) !important; border-color: var(--geography-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3);
+        }
+        .chooser-btn.geography:hover i, .chooser-btn.geography.active i { color: #ffffff !important; }
+
+        .chooser-btn.economics { border: 2px solid rgba(245, 158, 11, 0.3); color: var(--economics-color); }
+        .chooser-btn.economics i { color: var(--economics-color); }
+        .chooser-btn.economics:hover, .chooser-btn.economics.active {
+            background: var(--economics-color) !important; border-color: var(--economics-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        .chooser-btn.economics:hover i, .chooser-btn.economics.active i { color: #ffffff !important; }
+
+        .chooser-btn.kurdi { border: 2px solid rgba(255, 193, 7, 0.5); color: #b08800; }
+        .chooser-btn.kurdi i { color: #b08800; }
+        .chooser-btn.kurdi:hover, .chooser-btn.kurdi.active {
+            background: var(--kurdi-color) !important; border-color: var(--kurdi-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+        }
+        .chooser-btn.kurdi:hover i, .chooser-btn.kurdi.active i { color: #ffffff !important; }
+
+        .chooser-btn.arabic { border: 2px solid rgba(220, 53, 69, 0.3); color: var(--arabic-color); }
+        .chooser-btn.arabic i { color: var(--arabic-color); }
+        .chooser-btn.arabic:hover, .chooser-btn.arabic.active {
+            background: var(--arabic-color) !important; border-color: var(--arabic-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+        }
+        .chooser-btn.arabic:hover i, .chooser-btn.arabic.active i { color: #ffffff !important; }
+
+        .chooser-btn.religion { border: 2px solid rgba(25, 135, 84, 0.3); color: var(--religion-color); }
+        .chooser-btn.religion i { color: var(--religion-color); }
+        .chooser-btn.religion:hover, .chooser-btn.religion.active {
+            background: var(--religion-color) !important; border-color: var(--religion-color) !important; color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(25, 135, 84, 0.3);
+        }
+        .chooser-btn.religion:hover i, .chooser-btn.religion.active i { color: #ffffff !important; }
+
+        /* ستایلی نوێی کارتەکان */
+        .subject_card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 25px; 
+            max-width: 100%; 
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            background: #edf2f7;
+            color: #4a5568;
+        }
+
+
+        .site-footer {
+    direction: rtl; /* Forces RTL layout */
+    text-align: right; /* Aligns paragraph to the right */
+    background-color: #f8f9fa; /* Light background */
+    padding: 20px;
+}
+
+.footer-bottom {
+    background-color: #e9ecef; /* Slightly darker bar */
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Centers the copyright line */
+    font-size: 14px;
+}
+
+        .subject_card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .subject_card i.main-icon {
+            font-size: 32px;
+            width: 65px;
+            height: 65px;
+            line-height: 65px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            margin: 0 auto 18px auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .pdf_item.math:hover .main-icon { background: rgba(0, 123, 255, 0.1); }
+        .pdf_item.physics:hover .main-icon { background: rgba(111, 66, 193, 0.1); }
+        .pdf_item.chemistry:hover .main-icon { background: rgba(40, 167, 69, 0.1); }
+        .pdf_item.biology:hover .main-icon { background: rgba(232, 62, 140, 0.1); }
+        .pdf_item.english:hover .main-icon { background: rgba(253, 126, 20, 0.1); }
+        .pdf_item.literature:hover .main-icon { background: rgba(214, 51, 132, 0.1); }
+        .pdf_item.history:hover .main-icon { background: rgba(139, 92, 246, 0.1); }
+        .pdf_item.geography:hover .main-icon { background: rgba(13, 148, 136, 0.1); }
+        .pdf_item.economics:hover .main-icon { background: rgba(245, 158, 11, 0.1); }
+        .pdf_item.kurdi:hover .main-icon { background: rgba(255, 193, 7, 0.1); }
+        .pdf_item.arabic:hover .main-icon { background: rgba(220, 53, 69, 0.1); }
+        .pdf_item.religion:hover .main-icon { background: rgba(25, 135, 84, 0.1); }
+
+        .pdf_item.history .btn_viewer:hover { background: var(--history-color); }
+        .pdf_item.literature .btn_viewer:hover { background: var(--literature-color); }
+        .pdf_item.geography .btn_viewer:hover { background: var(--geography-color); }
+        .pdf_item.economics .btn_viewer:hover { background: var(--economics-color); }
+
+        .subject_card h3 { font-size: 20px; font-weight: 700; color: #1a202c; margin-bottom: 6px; }
+        .subject_card p { font-size: 14px; color: #718096; margin-bottom: 20px; }
+
+        /* ستایلی بنەڕەتی دوگمەکان */
+        .btn_viewer {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 24px;
+            border-radius: 50px;
+            background: #F7FAFC;
+            color: #4A5568;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+        
+        .btn_viewer i { font-size: 12px; }
+
+        /* چاککردنی فلتەری هۆڤەری دوگمەکان بە شێوەی سەربەخۆ */
+        .btn_viewer:hover { color: #fff !important; border-color: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .pdf_item.math .btn_viewer:hover { background: var(--math-color); }
+        .pdf_item.physics .btn_viewer:hover { background: var(--physics-color); }
+        .pdf_item.chemistry .btn_viewer:hover { background: var(--chemistry-color); }
+        .pdf_item.biology .btn_viewer:hover { background: var(--biology-color); }
+        .pdf_item.english .btn_viewer:hover { background: var(--english-color); }
+        .pdf_item.kurdi .btn_viewer:hover { background: var(--kurdi-color); }
+        .pdf_item.arabic .btn_viewer:hover { background: var(--arabic-color); }
+        .pdf_item.religion .btn_viewer:hover { background: var(--religion-color); }
+
+        /* گونجاندنی خۆکار بۆ مۆبایل */
+        @media (max-width: 576px) {
+            .type-btn { padding: 10px 22px; font-size: 14px; }
+            .subject-chooser { gap: 10px; }
+            .chooser-btn { padding: 15px 20px; border-radius: 14px; min-width: 105px; }
+            .chooser-btn i { font-size: 24px; margin-bottom: 6px; }
+            .chooser-btn span { font-size: 13px; }
+
+            .subject_card { padding: 35px 15px 20px 15px; margin-bottom: 15px; border-radius: 16px; }
+            .subject_card i.main-icon { font-size: 24px; width: 50px; height: 50px; line-height: 50px; margin-bottom: 10px; }
+            .subject_card h3 { font-size: 16px; margin-bottom: 4px; }
+            .subject_card p { font-size: 13px; margin-bottom: 12px; }
+            .btn_viewer { padding: 5px 14px; font-size: 11px; gap: 4px; }
+            .card-badge { top: 10px; right: 10px; font-size: 10px; padding: 2px 8px; }
+        }
+
+        /* گۆڕینی ڕەنگی hover بۆ شین */
+.type-btn:hover {
+    background-color: #007bff !important; /* ڕەنگی شینی تۆخ */
+    border-color: #007bff !important;
+    color: #ffffff !important;
+}
+
+/* بۆ ئەوەی ڕەنگەکە لە کاتی activeـیشدا شین بێت */
+.type-btn.active {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #ffffff !important;
+}
+
+    </style>
+</head>
+<body>
+     <!-- START NAVBAR -->  
+<div id="navigation" class="navbar-light bg-faded site-navigation navigation2">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Logo Section -->
+            <div class="col-20 align-self-center">
+                <div class="site-logo">
+                    <a href="index.html"><img src="assets/img/logo.png" alt="Grade12+"></a>          				
+                </div>
+            </div><!--- END Col -->
+        <!-- Main Desktop Menu -->
+<div class="col-60 d-flex">
+    <nav id="main-menu">
+        <ul class="nav-list">
+            <li><a href="about.html">دەربارە</a></li>                                 
+            
+            <li class="has-dropdown">
+                <a href="#">پۆلی دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">بەرەو دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                   <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                                        <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">زانکۆ</a>
+                <ul class="dropdown-menu">                                        
+ <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </li>                            
+            
+            <li><a href="contact.html">پەیوەندی</a></li>
+        </ul>
+    </nav>
+</div><!-- END Col -->
+               
+                <ul class="mobile_menu">						
+                    <li><a href="about.html">دەربارە</a></li>						
+                    <li><a href="#">پۆلی دوانزە</a>
+                        <ul class="sub-menu">										
+                            <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان </a></li>
+                            <li><a href="kurtkrawa.html"> کورتکراوەکان</a></li>
+                            <li><a href="taqikrdnawakan.html"> تاقیكردنه‌وه‌كان </a></li>
+                            <li><a href="quiz.html">کویز (جیاکراوە) </a></li>								
+                        </ul>
+                    </li>
+                    <li><a href="#">بەرەو دوانزە</a>
+                        <ul class="sub-menu">									
+                         <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>	
+                    <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+				
+                        </ul>
+                    </li>			
+                    <li><a href="#">زانکۆ</a>
+                        <ul class="sub-menu">										
+                          <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                        </ul>
+                    </li>						
+                    <li><a href="contact.html">پەیوەندی</a></li>
+                </ul>			
+            </div>
+        </div>
+    </div> 	  
+
+    <!-- START SECTION TOP -->
+    <section class="section-top">
+        <div class="container">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <h1> تاقیكردنه‌وه‌كان </h1>
+                    <ul>
+                        <li><a href="index.html">پۆلی 12</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>  
+    <!-- END SECTION TOP -->
+
+<section id="pricing" class="pricing-content section-padding" style="direction: rtl;">
+    <!-- Fresh Premium Bento-Grid & Neo-Glassmorphism UI Design -->
+    <style>
+        .custom-tabs .nav-link {
+            background: transparent;
+            color: #64748b;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            padding: 9px 22px;
+            font-family: 'Tahoma', sans-serif;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .custom-tabs .nav-link:hover {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+        .custom-tabs .nav-link.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.25);
+        }
+        /* --- FOOTER 5-COLUMN GRID FIX --- */
+.site-footer {
+    background-color: #0b1120 !important;
+    color: #94a3b8 !important;
+    padding: 60px 0 0 0 !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-family: inherit;
+}
+
+/* ==========================================
+   ULTIMATE MODERN DROPDOWN MENU STYLE
+========================================== */
+
+/* Parent Nav Item Alignment */
+#main-menu .nav-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 28px !important;
+}
+
+#main-menu .nav-list > li {
+    position: relative !important;
+    padding: 15px 0 !important;
+}
+
+#main-menu .nav-list > li > a {
+    text-decoration: none !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+}
+
+#main-menu .nav-list > li.has-dropdown:hover > a {
+    color: #4f46e5 !important;
+}
+
+/* Modern Dropdown Box Container */
+#main-menu .dropdown-menu,
+header.sticky #main-menu .dropdown-menu,
+.sticky #main-menu .dropdown-menu {
+    display: block !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    background-color: #ffffff !important;
+    border-radius: 18px !important;
+    min-width: 220px !important;
+    padding: 12px !important;
+    margin-top: -4px !important;
+    list-style: none !important;
+    z-index: 99999 !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12),
+                0 0 15px rgba(0, 0, 0, 0.03) !important;
+
+    /* Animation Mechanics */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(12px) scale(0.98) !important;
+    transform-origin: top right !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    pointer-events: none !important;
+}
+
+/* Smooth Fade & Slide-down on Hover */
+#main-menu .has-dropdown:hover > .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+}
+
+/* Menu Items List */
+#main-menu .dropdown-menu li {
+    display: block !important;
+    margin-bottom: 4px !important;
+}
+
+#main-menu .dropdown-menu li:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Individual Links Styling */
+#main-menu .dropdown-menu li a,
+header.sticky #main-menu .dropdown-menu li a,
+.sticky #main-menu .dropdown-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 14px !important;
+    color: #334155 !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+}
+
+/* Hover & Active Effect inside Dropdown */
+#main-menu .dropdown-menu li a:hover,
+header.sticky #main-menu .dropdown-menu li a:hover,
+.sticky #main-menu .dropdown-menu li a:hover {
+    background-color: #f0f3ff !important; /* Soft Primary Tint */
+    color: #4f46e5 !important;
+    padding-right: 18px !important; /* Interactive Indent Effect */
+}
+
+/* Optional subtle left indicator dot/line on hover */
+#main-menu .dropdown-menu li a::after {
+    content: '' !important;
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #4f46e5 !important;
+    border-radius: 50% !important;
+    opacity: 0 !important;
+    transform: scale(0) !important;
+    transition: all 0.2s ease !important;
+}
+
+#main-menu .dropdown-menu li a:hover::after {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* Transform Grid to exactly 5 equal columns */
+.site-footer .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr !important; /* ستوونی یەکەم کەمێک بەرینتر بۆ لوگۆ */
+    gap: 30px !important;
+    align-items: start !important;
+}
+
+/* Responsive Grid for Mobile & Tablets */
+@media (max-width: 991px) {
+    .site-footer .footer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .site-footer .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Brand & Logo */
+.site-footer .footer-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin-bottom: 15px !important;
+}
+
+.site-footer .footer-logo i {
+    color: #ffffff !important;
+    font-size: 26px !important;
+}
+
+.site-footer .brand-desc {
+    color: #94a3b8 !important;
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Titles */
+.site-footer .widget-title {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.site-footer .widget-title::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -6px !important;
+    right: 0 !important;
+    width: 30px !important;
+    height: 2px !important;
+    background-color: #6366f1 !important;
+}
+
+/* Links List */
+.site-footer .footer-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.site-footer .footer-links li {
+    margin-bottom: 12px !important;
+}
+
+.site-footer .footer-links a {
+    color: #cbd5e1 !important;
+    text-decoration: none !important;
+    font-size: 13.5px !important;
+    transition: all 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.site-footer .footer-links a:hover {
+    color: #818cf8 !important;
+    transform: translateX(-4px) !important;
+}
+
+/* Social Icons */
+.site-footer .footer-socials {
+    display: flex !important;
+    gap: 10px !important;
+}
+
+.site-footer .footer-socials a {
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.site-footer .footer-socials a:hover {
+    background: #6366f1 !important;
+    border-color: #6366f1 !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Copyright Bottom Bar */
+.site-footer .footer-bottom {
+    margin-top: 50px !important;
+    padding: 20px 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background-color: #060a12 !important;
+}
+
+.site-footer .footer-bottom-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    font-size: 13px !important;
+    color: #64748b !important;
+}
+
+.site-footer .footer-bottom-content p {
+    margin: 0 !important;
+}
+
+.site-footer .footer-bottom-content a {
+    color: #818cf8 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+        
+        /* Fresh Floating Grid Card Styling */
+        .premium-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .premium-card:hover {
+            transform: translateY(-5px);
+            border-color: #cbd5e1;
+            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.08);
+        }
+
+        .subject-grid {
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .premium-card {
+            min-height: 120px;
+        }
+
+        .premium-card .card-title,
+        .premium-card .card-meta {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        /* Action Button */
+        .action-btn {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            color: #4f46e5;
+            border-radius: 14px;
+            text-decoration: none;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .action-btn:hover {
+            background: #4f46e5;
+            color: #ffffff;
+            border-color: #4f46e5;
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        }
+        
+        /* Mobile-First Adaptations */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 18px !important;
+                border-radius: 20px !important;
+            }
+            .premium-card {
+                padding: 16px !important;
+                margin-bottom: 14px !important;
+                border-radius: 16px !important;
+            }
+            .card-title {
+                font-size: 0.92rem !important;
+            }
+            .card-meta {
+                font-size: 0.75rem !important;
+            }
+            .action-btn {
+                width: 40px !important;
+                height: 40px !important;
+                border-radius: 12px !important;
+            }
+            .pdf-badge-icon {
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <!-- Main Dashboard Wrapper Card -->
+        <div class="dashboard-container animate__animated animate__fadeInUp" style="background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%); border-radius: 30px; box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.06); padding: 45px; margin-top: 20px; margin-bottom: 50px; border: 1px solid #edf2f7;">
+            
+            <!-- Header Section with Navigation Tabs -->
+            <div class="row align-items-center mb-4 pb-4 border-bottom border-light">
+                <div class="col-md-6 mb-3 mb-md-0 text-right">
+                    <h3 class="fw-bold mb-0" style="font-size: 1.4rem; font-family: 'Tahoma', sans-serif; color: #0f172a;"><i class="fa-solid fa-layer-group text-indigo ms-2" style="color: #4f46e5;"></i> بەشەکانی تاقیکردنەوە</h3>
+                </div>
+                <div class="col-md-6 text-md-start">
+                    <ul class="nav nav-pills custom-tabs mb-0 justify-content-md-end justify-content-center" id="pills-tab" role="tablist" style="background: #f1f5f9; padding: 6px; border-radius: 16px; display: inline-flex; border: 1px solid #e2e8f0;">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-other-tab" data-bs-toggle="pill" data-bs-target="#pills-other" type="button" role="tab">وزاری</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab Content Panel -->
+            <div class="tab-content text-right" id="pills-tabContent">
+                
+                <div class="tab-pane fade show active" id="pills-other" role="tabpanel">
+                    <h4 class="section-title" style="font-family: 'Tahoma', sans-serif; font-weight: bold; font-size: 1.2rem; color: #334155; margin-bottom: 25px;"><i class="fa-solid fa-folder-open text-primary ms-2" style="color: #3b82f6;"></i>  پرسیاری ساڵانه‌ی تاقیكردنه‌وه‌ی نیشتمانی</h4>
+                    
+                    <!-- Added Row Wrapper for Bootstrap Grid Alignment -->
+                    <div class="row">
+
+                        <!-- Item 6: 2025-2026 -->
+                        <div class="col-lg-6">
+                            <div class="premium-card">
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <div class="pdf-badge-icon" style="width: 46px; height: 46px; background: rgba(239, 68, 68, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="fa-solid fa-file-pdf" style="font-size: 1.4rem; color: #ef4444;"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-1 fw-bold" style="font-family: 'Tahoma', sans-serif; color: #0f172a;">پۆلی 12 - 2025-2026 (خولی ١)</h6>
+                                        <small class="card-meta text-muted" style="font-family: 'Tahoma', sans-serif;">٣٨٧٩ داگرتن • وزاری</small>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="https://drive.google.com/drive/u/0/folders/1Q6Hm8KOfihtqskrX1Ifp_oO3JpK7ts1C" class="action-btn" title="بینین"><i class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 7: 2024-2025 (خولی ١) -->
+                        <div class="col-lg-6">
+                            <div class="premium-card">
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <div class="pdf-badge-icon" style="width: 46px; height: 46px; background: rgba(239, 68, 68, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="fa-solid fa-file-pdf" style="font-size: 1.4rem; color: #ef4444;"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-1 fw-bold" style="font-family: 'Tahoma', sans-serif; color: #0f172a;">پۆلی 12 - 2024-2025 (خولی ١)</h6>
+                                        <small class="card-meta text-muted" style="font-family: 'Tahoma', sans-serif;">٤٣٩٨ داگرتن • وزاری</small>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="https://drive.google.com/drive/folders/1xi0r3-X-mlmvrqZrRu6OIiRyvWCcE4Zn" class="action-btn" title="بینین"><i class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 8: 2024-2025 (خولی ٢) -->
+                        <div class="col-lg-6">
+                            <div class="premium-card">
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <div class="pdf-badge-icon" style="width: 46px; height: 46px; background: rgba(239, 68, 68, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="fa-solid fa-file-pdf" style="font-size: 1.4rem; color: #ef4444;"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-1 fw-bold" style="font-family: 'Tahoma', sans-serif; color: #0f172a;">پۆلی 12 - 2024-2025 (خولی ٢)</h6>
+                                        <small class="card-meta text-muted" style="font-family: 'Tahoma', sans-serif;">٤٤٣٥ داگرتن • وزاری</small>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="https://drive.google.com/drive/folders/1OyrjTO1e1tWHNCiES4W5MrDzcY3A6fi4" class="action-btn" title="بینین"><i class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 9: 2023-2024 (خولی ٢) -->
+                        <div class="col-lg-6">
+                            <div class="premium-card">
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <div class="pdf-badge-icon" style="width: 46px; height: 46px; background: rgba(239, 68, 68, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="fa-solid fa-file-pdf" style="font-size: 1.4rem; color: #ef4444;"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-1 fw-bold" style="font-family: 'Tahoma', sans-serif; color: #0f172a;">پۆلی 12 - 2023-2024 (خولی ٢)</h6>
+                                        <small class="card-meta text-muted" style="font-family: 'Tahoma', sans-serif;">١٢٥٤ داگرتن • وزاری</small>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="https://drive.google.com/drive/folders/1wDwE9DrL2h2hXCw6RMgGm8JVZOmx-soe" class="action-btn" title="بینین"><i class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 10: 2022-2023 (خولی ١) -->
+                        <div class="col-lg-6">
+                            <div class="premium-card">
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <div class="pdf-badge-icon" style="width: 46px; height: 46px; background: rgba(239, 68, 68, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="fa-solid fa-file-pdf" style="font-size: 1.4rem; color: #ef4444;"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-1 fw-bold" style="font-family: 'Tahoma', sans-serif; color: #0f172a;">پۆلی 12 - 2022-2023 (خولی ١)</h6>
+                                        <small class="card-meta text-muted" style="font-family: 'Tahoma', sans-serif;">١٠٥٧ داگرتن • وزاری</small>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="https://drive.google.com/drive/folders/1To6oyhf9S-ul_fx5e71FajeLDazkpHHk" class="action-btn" title="بینین"><i class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 11: 2022-2023 (خولی ٢) -->
+                        <div class="col-lg-6">
+                            <div class="premium-card">
+                                <div style="display: flex; align-items: center; gap: 16px;">
+                                    <div class="pdf-badge-icon" style="width: 46px; height: 46px; background: rgba(239, 68, 68, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="fa-solid fa-file-pdf" style="font-size: 1.4rem; color: #ef4444;"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title mb-1 fw-bold" style="font-family: 'Tahoma', sans-serif; color: #0f172a;">پۆلی 12 - 2022-2023 (خولی ٢)</h6>
+                                        <small class="card-meta text-muted" style="font-family: 'Tahoma', sans-serif;">٨٩٢ داگرتن • وزاری</small>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="https://drive.google.com/drive/folders/1uKSKy3yOhHqZGFGrSBT1GH01jBDGsqFE" class="action-btn" title="بینین"><i class="fa-solid fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- FOOTER SECTION -->
+<footer class="site-footer" dir="rtl">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <!-- Column 1: Brand & About -->
+            <div class="footer-widget brand-widget">
+                <div class="footer-logo">
+                    <i style="color: #ffffff;" class="fa-solid fa-graduation-cap"></i>
+                    <span>پۆلی ١٢</span>
+                </div>
+                <p class="brand-desc">
+                    پلاتفۆرمی پۆلی ١٢ باشترین و سەرەکیترین سەرچاوەیە بۆ قوتابیانی پۆلی ١٢ لە هەرێمی کوردستان. ئامانجمان دابینکردنی کۆرس، پرسیاری وەزاری و ڕاهێنانی وردە بۆ بەدەستهێنانی نمرەی بەرز.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: پۆلی دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پۆلی دوانزە</h4>
+                <ul class="footer-links">
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: بەرەو دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">بەرەو دوانزە</h4>
+                <ul class="footer-links">
+                      <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                                                            <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: زانکۆ -->
+            <div class="footer-widget">
+                <h4 class="widget-title">زانکۆ</h4>
+                <ul class="footer-links">
+                            <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: پەیوەندی -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پەیوەندی</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">دەربارەی ئێمە</a></li>
+                    <li><a href="contact.html">پەیوەندی بکە</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER COPYRIGHT -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <p>&copy; ٢٠٢٦. هەموو مافێک پارێزراوە بۆ <b>پۆلی ١٢</b></p>
+                <p class="credit">بڵاوکراوەتەوە لەلایەن <a href="https://themewagon.com" target="_blank">AriMathers</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript - سیستەمی فلتەری دووانەیی و هەڕەمەکی -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('pdf-container');
+            const items = Array.from(container.getElementsByClassName('pdf_item'));
+            
+            // ١. تێکەڵکردنی هەڕەمەکی مەلزەمەکان و کتێبەکان لە کاتی بارکردنی لاپەڕەدا
+            for (let i = items.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                container.appendChild(items[j]);
+            }
+
+            // بیرۆکەی فلتەری دووانەیی
+            let activeType = 'all';     
+            let activeSubject = 'all';  
+
+            const typeButtons = document.querySelectorAll('.type-btn');
+            const subjectButtons = document.querySelectorAll('.chooser-btn');
+
+            function applyDoubleFilter() {
+                items.forEach(item => {
+                    const matchType = (activeType === 'all' || item.classList.contains(activeType));
+                    const matchSubject = (activeSubject === 'all' || item.classList.contains(activeSubject));
+
+                    if (matchType && matchSubject) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 200);
+                    }
+                });
+            }
+
+            // فلتەری یەکەم: کتێب / مەلزەمە
+            typeButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    typeButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    activeType = this.getAttribute('data-type');
+                    applyDoubleFilter();
+                });
+            });
+
+            // فلتەری دووەم: بابەتەکان
+            subjectButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    subjectButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    activeSubject = this.getAttribute('data-filter');
+                    applyDoubleFilter();
+                });
+            });
+        });
+    </script>
+
+    <!-- jQuery & Framework Plugins -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+    <script src="assets/js/jquery-simple-mobilemenu.js"></script>
+    <script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.inview.min.js"></script>
+    <script src="assets/js/scrolltopcontrol.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

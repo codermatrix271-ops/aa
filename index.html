@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Eduleb - قالبێکی خوێندنی HTML">
+    <meta name="keywords" content="خوێندن, کۆرس, ئۆنلاین, پەروەردە, HTML">
+    <title> سه‌ره‌كی</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- Google Font: DM Sans (fallback) -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <!-- Google Font: Jost (fallback) -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Themify Icons (fallback) -->
+    <link rel="stylesheet" href="assets/fonts/themify-icons.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+    <!-- Mobile menu -->
+    <link rel="stylesheet" href="assets/css/jquery-simple-mobilemenu.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- 
+        FONT: "ari" 
+        Using the exact @font-face you provided.
+        Make sure the file "Rabar_021 (1).ttf" is in the same folder as this HTML file,
+        or adjust the path accordingly.
+    -->
+    <style>
+        @font-face {
+            font-family: ari;
+            src: url(Rabar_021\ \(1\).ttf);
+        }
+
+        /* Apply 'ari' as primary font across the entire site */
+        * {
+            font-family: 'ari', 'DM Sans', 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        /* Fix icon issues - ensure icons use their own font */
+        .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands, 
+        .ti-star, .ti-check, .ti-book, .ti-alarm-clock, .ti-user, 
+        .ti-folder, .ti-medall-alt, .ti-id-badge, .ti-file, 
+        .ti-map, .ti-mobile, .ti-email, .ti-arrow-top-right,
+        .ti-user, .ti-book, .ti-star, .ti-check {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'themify', 'FontAwesome', sans-serif !important;
+        }
+
+        /* Ensure specific icon families */
+        .fa-solid, .fas {
+            font-family: 'Font Awesome 6 Free' !important;
+            font-weight: 900 !important;
+        }
+        .fa-regular, .far {
+            font-family: 'Font Awesome 6 Free' !important;
+            font-weight: 400 !important;
+        }
+        .fa-brands, .fab {
+            font-family: 'Font Awesome 6 Brands' !important;
+            font-weight: 400 !important;
+        }
+
+        /* Fix X/Twitter icon */
+        .fa-x {
+            font-family: 'Font Awesome 6 Brands' !important;
+            font-weight: 400 !important;
+        }
+
+        /* Fix footer contact icons */
+        .sf_contact .ti-map,
+        .sf_contact .ti-mobile,
+        .sf_contact .ti-email {
+            font-family: 'themify', 'Font Awesome 6 Free' !important;
+        }
+
+        /* Fix social icons in footer */
+        .social_profile .fa-x,
+        .social_profile .fa-facebook-f,
+        .social_profile .fa-instagram,
+        .social_profile .fa-linkedin-in {
+            font-family: 'Font Awesome 6 Brands' !important;
+            font-weight: 400 !important;
+        }
+
+        /* Fix team social icons */
+        .team-content .fa-x,
+        .team-content .fa-facebook-f,
+        .team-content .fa-linkedin-in {
+            font-family: 'Font Awesome 6 Brands' !important;
+            font-weight: 400 !important;
+        }
+
+        /* Fix star ratings */
+        .fa-star {
+            font-family: 'Font Awesome 6 Free' !important;
+            font-weight: 900 !important;
+        }
+
+        /* Fix testimonial stars */
+        .testimonial_content .ti-star {
+            font-family: 'themify', 'Font Awesome 6 Free' !important;
+        }
+
+        /* Fix play button */
+        .fa-play {
+            font-family: 'Font Awesome 6 Free' !important;
+            font-weight: 900 !important;
+        }
+
+        /* Fix paper-plane */
+        .fa-paper-plane-o {
+            font-family: 'Font Awesome 6 Free' !important;
+            font-weight: 400 !important;
+        }
+
+        /* Fix all ti- icons to use themify */
+        [class^="ti-"], [class*=" ti-"] {
+            font-family: 'themify' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+
+        }
+/* ڕێکخستنی سندوقی ناوەرۆک */
+.single_blog .content_box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+}
+
+/* دروستکردنی فاصلە لە ژێر پەرەگرافەکە */
+.single_blog .content_box p {
+    margin-bottom: 20px; /* ڕێگە لە دوگمەکە دەگرێت بکەوێتە سەر دەقەکە */
+    flex-grow: 1; /* دەقەکە شوێنی شایستەی خۆی دەگرێت */
+}
+
+/* ڕێکخستنی دوگمەکە */
+.single_blog .btn_one {
+    display: inline-block;
+    align-self: flex-start; /* لە کاتی RTL دا بە شێوەی خۆکارانە دەکەوێتە لای ڕاست */
+    margin-top: auto; /* دوگمەکە دەنێرێتە کۆتایی کارتەکە */
+}
+
+
+/* Container & Background */
+.ab_area {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    padding: 80px 0;
+    direction: rtl;
+}
+
+.ab_content .sub-title {
+    color: #4f46e5;
+    background-color: #e0e7ff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.ab_content h2 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.ab_content .lead-text {
+    font-size: 18px;
+    color: #334155;
+    max-width: 750px;
+    margin: 0 auto 12px auto;
+    font-weight: 500;
+}
+
+.ab_content .desc-text {
+    font-size: 15px;
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto 35px auto;
+    line-height: 1.7;
+}
+
+/* Feature Grid Design (2 Column Layout) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-item {
+    background: #ffffff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+}
+
+/* Icon Box Alignment Fix */
+.feature-item .icon-box {
+    width: 34px;
+    height: 34px;
+    background-color: #4f46e5;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.feature-item span {
+    font-size: 15px;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+/* Button Alignment & Effect */
+.btn-wrapper {
+    margin-top: 10px;
+}
+
+.primary-btn {
+    background-color: #4f46e5;
+    color: #ffffff !important;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+    text-decoration: none;
+}
+
+.primary-btn:hover {
+    background-color: #4338ca;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.35);
+}
+
+/* --- TEXT-ONLY BLOG CARDS --- */
+.text_blog_card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    direction: rtl;
+}
+
+.text_blog_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(79, 70, 229, 0.1);
+    border-color: #e0e7ff;
+}
+
+/* Card Header & Icons */
+.text_blog_card .card_header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.text_blog_card .badge_icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.bg-primary-subtle { background-color: #e0e7ff; color: #4f46e5; }
+.bg-success-subtle { background-color: #dcfce7; color: #16a34a; }
+.bg-warning-subtle { background-color: #fef3c7; color: #d97706; }
+
+.text_blog_card .news_date {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.text_blog_card .news_date a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+/* Card Content */
+.text_blog_card .card_body h2 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.text_blog_card .card_body h2 a {
+    color: #0f172a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.text_blog_card .card_body h2 a:hover {
+    color: #4f46e5;
+}
+
+.text_blog_card .card_body p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Link Button */
+.text_blog_card .btn_link {
+    color: #4f46e5;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s ease;
+}
+
+
+
+.text_blog_card .btn_link:hover {
+    gap: 10px;
+    color: #3730a3;
+}
+
+/* --- MODERN FOOTER STYLES --- */
+.site-footer {
+    background-color: #0f172a; /* ڕەنگی تاریکی خاوێن */
+    color: #94a3b8;
+    padding-top: 70px;
+    font-size: 14px;
+    direction: rtl;
+    text-align: right;
+}
+
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Grid Layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Brand Column */
+.brand-widget .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.brand-widget .footer-logo i {
+    color: #ffffff; /* White icon */
+    font-size: 28px;
+}
+
+.brand-desc {
+    line-height: 1.8;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Social Icons */
+.footer-socials {
+    display: flex;
+    gap: 10px;
+}
+
+
+.footer-socials a {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background-color: #4f46e5;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Widget Headings */
+.widget-title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 25px;
+    height: 2px;
+    background-color: #4f46e5;
+}
+
+/* Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease, padding-right 0.2s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    padding-right: 5px; /* Effect on hover */
+}
+/* --- FIX DROPDOWN OPTIONS NOT SHOWING --- */
+
+/* 1. Unhide overflow on header container */
+/* ==========================================
+   ULTIMATE MODERN DROPDOWN MENU STYLE
+========================================== */
+
+/* Parent Nav Item Alignment */
+#main-menu .nav-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 28px !important;
+}
+
+#main-menu .nav-list > li {
+    position: relative !important;
+    padding: 15px 0 !important;
+}
+
+#main-menu .nav-list > li > a {
+    text-decoration: none !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+}
+
+#main-menu .nav-list > li.has-dropdown:hover > a {
+    color: #4f46e5 !important;
+}
+
+/* Modern Dropdown Box Container */
+#main-menu .dropdown-menu,
+header.sticky #main-menu .dropdown-menu,
+.sticky #main-menu .dropdown-menu {
+    display: block !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    background-color: #ffffff !important;
+    border-radius: 18px !important;
+    min-width: 220px !important;
+    padding: 12px !important;
+    margin-top: -4px !important;
+    list-style: none !important;
+    z-index: 99999 !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12),
+                0 0 15px rgba(0, 0, 0, 0.03) !important;
+
+    /* Animation Mechanics */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(12px) scale(0.98) !important;
+    transform-origin: top right !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    pointer-events: none !important;
+}
+
+/* Smooth Fade & Slide-down on Hover */
+#main-menu .has-dropdown:hover > .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+}
+
+/* Menu Items List */
+#main-menu .dropdown-menu li {
+    display: block !important;
+    margin-bottom: 4px !important;
+}
+
+#main-menu .dropdown-menu li:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Individual Links Styling */
+#main-menu .dropdown-menu li a,
+header.sticky #main-menu .dropdown-menu li a,
+.sticky #main-menu .dropdown-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 14px !important;
+    color: #334155 !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+}
+
+/* Hover & Active Effect inside Dropdown */
+#main-menu .dropdown-menu li a:hover,
+header.sticky #main-menu .dropdown-menu li a:hover,
+.sticky #main-menu .dropdown-menu li a:hover {
+    background-color: #f0f3ff !important; /* Soft Primary Tint */
+    color: #4f46e5 !important;
+    padding-right: 18px !important; /* Interactive Indent Effect */
+}
+
+/* Optional subtle left indicator dot/line on hover */
+#main-menu .dropdown-menu li a::after {
+    content: '' !important;
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #4f46e5 !important;
+    border-radius: 50% !important;
+    opacity: 0 !important;
+    transform: scale(0) !important;
+    transition: all 0.2s ease !important;
+}
+
+#main-menu .dropdown-menu li a:hover::after {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* Footer Bottom / Copyright */
+.footer-bottom {
+    background-color: #080e1a;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 0;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (max-width: 576px) {
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+.footer-bottom-content p {
+    margin: 0;
+}
+
+.footer-bottom-content a {
+    color: #818cf8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-bottom-content a:hover {
+    text-decoration: underline;
+}
+        
+/* --- ABOUT SECTION STYLES --- */
+.about_section {
+    background-color: #f8fafc;
+    padding: 80px 0;
+    direction: rtl;
+    text-align: right;
+}
+
+.about_content .sub_badge {
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.about_title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.about_desc {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* Feature List Formatting */
+.about_features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.about_features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: #334155;
+}
+
+.about_features .check_icon {
+    width: 28px;
+    height: 28px;
+    background-color: #4f46e5;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.about_features b {
+    color: #4f46e5;
+}
+
+/* Primary Button Styling */
+.btn_primary {
+    background-color: #4f46e5;
+    color: #ffffff !important;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn_primary:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.about_img_wrap img {
+    max-width: 100%;
+    height: auto;
+}
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body data-spy="scroll" data-offset="80">
+
+    <!-- PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+  <!-- START NAVBAR -->  
+<div id="navigation" class="navbar-light bg-faded site-navigation navigation2">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Logo Section -->
+            <div class="col-20 align-self-center">
+                <div class="site-logo">
+                    <a href="index.html"><img src="assets/img/logo.png" alt="Grade12+"></a>          				
+                </div>
+            </div><!--- END Col -->
+        <!-- Main Desktop Menu -->
+<div class="col-60 d-flex">
+    <nav id="main-menu">
+        <ul class="nav-list">
+            <li><a href="about.html">دەربارە</a></li>                                 
+            
+            <li class="has-dropdown">
+                <a href="#">پۆلی دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">بەرەو دوانزە</a>
+                <ul class="dropdown-menu">                                        
+                    <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                    <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+
+                </ul>
+            </li>                        
+            
+            <li class="has-dropdown">
+                <a href="blog.html">زانکۆ</a>
+                <ul class="dropdown-menu">   
+                   <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+
+                </ul>
+            </li>                            
+            
+            <li><a href="contact.html">پەیوەندی</a></li>
+        </ul>
+    </nav>
+</div><!-- END Col -->
+            <!-- Mobile Menu List (Visible on Mobile) -->
+            <ul class="mobile_menu">						
+                <li><a href="about.html">دەربارە</a></li>						
+                <li><a href="#">پۆلی دوانزە</a>
+                    <ul class="sub-menu">										
+                        <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان </a></li>
+                        <li><a href="kurtkrawa.html"> کورتکراوەکان</a></li>
+                        <li><a href="taqikrdnawakan.html"> تاقیكردنه‌وه‌كان </a></li>
+                        <li><a href="quiz.html">کویز (جیاکراوە) </a></li>								
+                    </ul>
+                </li>
+                <li><a href="#">بەرەو دوانزە</a>
+                    <ul class="sub-menu">									
+                       <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                                        <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+
+                    </ul>
+                </li>			
+                <li><a href="#">زانکۆ</a>
+                    <ul class="sub-menu">										
+                       <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                    </ul>
+                </li>						
+                <li><a href="contact.html">پەیوەندی</a></li>
+            </ul>			
+        </div><!--- END ROW -->
+    </div><!--- END CONTAINER -->
+</div> 	  
+<!-- END NAVBAR -->
+    <!-- HOME -->
+    <section class="home_bg hb_height" style="background-image: url(assets/img/bg/home-bg.jpg); background-size:cover; background-position: center center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 col-xs-12">
+                    <div class="hero-text ht_top">
+                      <div class="hero-content">
+    <h1><span>خوێندنی زیرەک</span> پێشەنگی ئه‌زموون بۆ داهاتوو</h1>
+    <p>ئاستی زانست و تواناکانت بگەیەنە لووتکە، لەناو کۆمەڵێک ناوەرۆکی پێشکەوتوودا بگەڕێ و سەرکەوتنی خۆت مسۆگەر بکە</p>
+</div>
+                    <div class="home_sb">
+                       
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-xs-12">
+                    <div class="hero-text-img">
+                        <img src="assets/img/home-img2.png" class="img-fluid" alt="" />
+                        <div class="home_ps">
+                            <span class="ti-user"></span>
+                            <h2>500+</h2>
+                            <p>خوێندکاری چالاک</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- CATEGORY -->
+    <section class="top_cat__area section-padding" style="background-image: url(assets/img/bg/shape-1.png); background-size:cover; background-position: center center;">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>گەشتەکەت لەگەڵ ئێمە دەستپێبکە</h2>
+                <p>ئێمە ڕێگایەکی نوێ پێشکەش دەکەین بۆ فێربوونی بنەڕەتی. لەناو کۆمەڵێک ‌بژاردەی جیاواز هەڵبژێرە و توانای نوێ پەیدابکە! قوتابخانەکەمان ناسراوە بە کوالێتی بەرز.</p>
+            </div>
+            <div class="row">
+              <!-- Step 1 -->
+<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+    <div class="single_tp">
+        <span class="sc_one">١</span>
+        <h3>پێگەیاندنی <br />قوتابی لێهاتوو</h3>
+        <p>ئێمە ژینگەیەک دەڕەخسێنین کە تێیدا قوتابیان بە نوێترین تەکنیک و ئەزموونی زانستییەوە گەشە دەکەن.</p>
+    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <div class="single_tp">
+                        <span class="sc_two">٢</span>
+                      <h3>کورتکراوە و <br />مەلزەمەی پوخت</h3>
+        <p>دابینکردنی باشترین مەلزەمە و کورتکراوەی وانەکان بە شێوازێکی زانستی.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
+                    <div class="single_tp">
+                        <span class="sc_three">٣</span>
+                        <h3>فێربوونی <br />دوور</h3>
+                        <p>سیستەمێکی مۆدێرن بۆ خوێندنی ئۆنلاین کە ڕێگەت پێ دەدات لە هەر کات و شوێنێک بێت بخوێنیت.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-offset="0">
+                    <div class="single_tp">
+                        <span class="sc_four">٤</span>
+                        <h3>پشتیوانی <br />هەمیشەیی</h3>
+                        <p>تیمێکی تایبەت بەردەوام ئامادەن بۆ وەڵامدانەوەی پرسیارەکانت و چارەسەرکردنی کێشەکانت.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ABOUT US SECTION -->
+<section class="about_section section-padding" dir="rtl">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <!-- Content Column -->
+            <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="about_content">
+                    <span class="sub_badge">دەربارەی پلاتفۆرم</span>
+                    <h2 class="about_title">داهاتوویەکی ڕوونتر لەگەڵ ئێمە</h2>
+                    <p class="about_desc">
+                        دەزانین قوتابیانی کوردستان پێویستیان بە چییە؛ ئامانجمان تەنها پێدانی زانیاری نییە، بەڵکو دروستکردنی ڕێگایەکی ئاسان و مۆدێرنە بۆ ئەوەی بگەیتە خەونەکانت. لێرەدا باشترین هۆکارەکانی سەرکەوتن کۆکراونەتەوە کە بە وردی بۆ تاقیکردنەوەکان و داهاتووی کاریی داڕێژراون.
+                    </p>
+
+                    <!-- Feature List Fix -->
+                    <ul class="about_features">
+                        <li>
+                            <div class="check_icon"><i class="ti-check"></i></div>
+                            <span>دەستڕاگەیشتن بە <b>باشترین</b> مەلزەمە و کورتکراوەی پوخت</span>
+                        </li>
+                        <li>
+                            <div class="check_icon"><i class="ti-check"></i></div>
+                            <span>فێربوونی کارامەیی نوێ بە زمانێکی سادە و پاراو</span>
+                        </li>
+                        <li>
+                            <div class="check_icon"><i class="ti-check"></i></div>
+                            <span>ڕێنمایی بەردەوام بۆ هەڵبژاردنی ڕێگایەکی سەرکەوتوو</span>
+                        </li>
+                    </ul>
+
+                    <div class="about_btn_wrap">
+                        <a class="btn_primary" href="course.html">
+                            ئێستا دەستپێبکە <i class="ti-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <div class="about_img_wrap text-center">
+                    <img src="assets/img/about1.png" class="img-fluid" alt="دەربارەی ئێمە">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- CATEGORY 2 -->
+    <section class="top_cat__area section-padding" style="background-image: url(assets/img/bg/section-2.jpg); background-size:cover; background-position: center center;">
+        <div class="container">
+           <div class="section-title text-center">
+    <h2>جیهانێک لە فێربوون لەبەردەستتە</h2>
+    <p>ئەو بوارە هەڵبژێرە کە خەونی پێوە دەبینیت؛ ئێمە هەموو سەرچاوە و کورتکراوە پێویستەکانمان بۆ گەیشتن بە ئامانجەکانت لێرە کۆکردووەتەوە</p>
+</div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                    <div class="cat_list">
+                        <ul>
+                            <li><a href="#"><img src="assets/img/e1.png" alt="category-image" /> پڕۆگرامینگ</a></li>
+                            <li><a href="#"><img src="assets/img/e2.png" alt="category-image" /> زمانی ئینگلیزی</a></li>
+                            <li><a href="#"><img src="assets/img/e3.png" alt="category-image" /> پۆلی ١٢</a></li>
+                            <li><a href="#"><img src="assets/img/e4.png" alt="category-image" /> دیزاینی گرافیک</a></li>
+                            <li><a href="#"><img src="assets/img/e5.png" alt="category-image" /> ژیریی دەستکرد</a></li>
+                            <li><a href="#"><img src="assets/img/e6.png" alt="category-image" /> مۆنتاژ و ڤیدیۆ</a></li>
+                            <li><a href="#"><img src="assets/img/e7.png" alt="category-image" /> کارکردنی ئۆنلاین</a></li>
+                            <li><a href="#"><img src="assets/img/e8.png" alt="category-image" /> گەشەپێدانی خود</a></li>
+                            <li><a href="#"><img src="assets/img/e9.png" alt="category-image" /> تەکنەلۆژیا</a></li>
+                            <li><a href="#"><img src="assets/img/e2.png" alt="category-image" /> دیزاینی ماڵپەڕ</a></li>
+                            <li><a href="#"><img src="assets/img/e3.png" alt="category-image" /> بازاڕکردنی دیجیتاڵی</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- TEAM -->
+ <section class="owner-profile-section section-padding" dir="rtl">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title text-center">
+            <h2>خاوەنی <span class="highlight">پڕۆژە</span></h2>
+            <div class="title-divider"></div>
+            <p class="subtitle">ناساندنی دامەزرێنەر و خاوەنی پڕۆژەیە</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="profile-card">
+                    <!-- Decorative Background Elements -->
+                    <div class="card-decoration">
+                        <div class="orb orb-1"></div>
+                        <div class="orb orb-2"></div>
+                        <div class="orb orb-3"></div>
+                    </div>
+
+                    <!-- Top Gradient Accent -->
+                    <div class="card-accent"></div>
+
+                    <!-- Floating Action Badge -->
+                    <div class="floating-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>دامەزرێنەر</span>
+                    </div>
+
+                    <div class="profile-content">
+                        <!-- Profile Avatar Container -->
+                        <div class="profile-avatar-wrapper">
+                            <div class="avatar-ring"></div>
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span class="status-indicator" title="بەردەستە"></span>
+                        </div>
+
+                        <!-- Name & Role -->
+                        <div class="profile-info">
+                            <div class="name-row">
+                                <h3>ئاری مازه‌رس</h3>
+                                <span class="verified-badge" title="پشتڕاست کراوەتەوە">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                            </div>
+                            <span class="role-title">
+                                <i class="fas fa-briefcase"></i>
+                                خاوەن و دامەزرێنەر
+                            </span>
+                        </div>
+
+                        <!-- Stats Bar -->
+                        <div class="stats-bar">
+                            <div class="stat-item">
+                                <span class="stat-number">+2</span>
+                                <span class="stat-label">ساڵ ئەزموون</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">پڕۆژە</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">ئامانج</span>
+                            </div>
+                        </div>
+
+                        <!-- Bio -->
+                        <p class="profile-bio">
+                            <i class="fas fa-quote-right quote-icon"></i>
+                            دامەزرێنەر و بەڕێوەبەری پلاتفۆرمەکەیە، ئامانجی یارمەتیدانی خوێندکارانە بۆ گەیشتن بە نمرەی ١٠٠.
+                        </p>
+
+                     <!-- Expertise Tags -->
+<div class="expertise-tags">
+    <span class="tag">
+        <i class="fas fa-graduation-cap"></i>
+        پەروەردە
+    </span>
+    <span class="tag">
+        <i class="fas fa-code"></i>
+        تەکنەلۆژیا
+    </span>
+    <span class="tag">
+        <i class="fas fa-chart-line"></i>
+        ڕاهێنان
+    </span>
+    <span class="tag">
+        <i class="fas fa-shield-halved"></i>
+        ئاسایشی ئه‌لیكترۆنی
+    </span>
+    <span class="tag">
+        <i class="fas fa-brain"></i>
+        دەروونناسی
+    </span>
+    <span class="tag">
+        <i class="fas fa-laptop-code"></i>
+     گەشەپێدانی ماڵپه‌ڕ
+    </span>
+</div>
+                        </div>
+<!-- Social Links (with Telegram added) -->
+<ul class="social-links">
+    <li><a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a></li>
+    <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+    <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+    <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+    <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+    <li><a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    
+    /* --- General Section Styles --- */
+    .owner-profile-section {
+        padding: 90px 0;
+        background: radial-gradient(circle at 50% 0%, #ffffff 0%, #f1f5f9 100%);
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Section Title */
+    .section-title {
+        margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #0b2a4a;
+        margin-bottom: 12px;
+    }
+
+    .section-title h2 .highlight {
+        color: #d97706;
+    }
+
+    .title-divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #0b2a4a, #fbbf24);
+        margin: 15px auto;
+        border-radius: 2px;
+    }
+
+    .section-title .subtitle {
+        color: #64748b;
+        font-size: 1.05rem;
+        margin-top: 5px;
+    }
+
+    /* --- Profile Card Container --- */
+    .profile-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 24px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 20px 50px rgba(11, 42, 74, 0.06), 0 1px 3px rgba(0,0,0,0.02);
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+    }
+
+    .profile-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 70px rgba(11, 42, 74, 0.12);
+        border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    /* Decorative Orbs */
+    .card-decoration {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .orb {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.06;
+        transition: all 0.8s ease;
+    }
+
+    .orb-1 {
+        width: 180px;
+        height: 180px;
+        background: #0b2a4a;
+        top: -60px;
+        left: -40px;
+    }
+
+    .orb-2 {
+        width: 140px;
+        height: 140px;
+        background: #f59e0b;
+        bottom: -40px;
+        right: -40px;
+    }
+
+    .orb-3 {
+        width: 90px;
+        height: 90px;
+        background: #3b82f6;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.03;
+    }
+
+    .profile-card:hover .orb-1 { transform: scale(1.2) rotate(15deg); }
+    .profile-card:hover .orb-2 { transform: scale(1.2) rotate(-15deg); }
+
+    /* Top Accent Line */
+    .card-accent {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, #0b2a4a, #f59e0b, #0b2a4a);
+        background-size: 200% 100%;
+        animation: shimmer 4s linear infinite;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    /* Floating Badge */
+    .floating-badge {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: #ffffff;
+        padding: 5px 14px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        z-index: 10;
+    }
+
+    .floating-badge i { font-size: 0.75rem; }
+
+    .profile-content {
+        padding: 35px 28px 30px 28px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Avatar Design */
+    .profile-avatar-wrapper {
+        position: relative;
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 20px auto;
+    }
+
+    .avatar-ring {
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0b2a4a, #f59e0b);
+        opacity: 0.8;
+        transition: transform 0.4s ease;
+    }
+
+    .profile-card:hover .avatar-ring {
+        transform: rotate(180deg);
+    }
+
+    .profile-avatar {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #f1f5f9;
+        border: 3px solid #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: #0b2a4a;
+        font-size: 2.2rem;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .status-indicator {
+        position: absolute;
+        bottom: 2px;
+        right: 4px;
+        width: 14px;
+        height: 14px;
+        background-color: #10b981;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    /* --- Info Styles --- */
+    .profile-info {
+        margin-bottom: 20px;
+    }
+
+    .name-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+    .profile-info h3 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #0b2a4a;
+        margin: 0;
+        letter-spacing: -0.3px;
+    }
+
+    .verified-badge {
+        color: #0284c7;
+        font-size: 1.2rem;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .role-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #475569;
+        background: #f1f5f9;
+        padding: 4px 16px;
+        border-radius: 50px;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+
+    .profile-card:hover .role-title {
+        border-color: #fde68a;
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .role-title i {
+        color: #d97706;
+        font-size: 0.8rem;
+    }
+
+    /* --- Stats Bar --- */
+    .stats-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 12px 10px;
+        margin-bottom: 20px;
+        background: #f8fafc;
+        border-radius: 16px;
+        border: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+    }
+
+    .profile-card:hover .stats-bar {
+        background: #ffffff;
+        border-color: #fde68a;
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.08);
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    }
+
+    .stat-number {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #0b2a4a;
+        line-height: 1.2;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #64748b;
+        margin-top: 2px;
+    }
+
+    .stat-divider {
+        width: 1px;
+        height: 24px;
+        background: #e2e8f0;
+    }
+
+    /* --- Bio Text --- */
+    .profile-bio {
+        color: #475569;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        padding: 0 5px;
+        position: relative;
+    }
+
+    .quote-icon {
+        color: #f59e0b;
+        font-size: 0.85rem;
+        margin-left: 4px;
+        opacity: 0.7;
+    }
+
+    /* --- Expertise Tags --- */
+    .expertise-tags {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 22px;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #1e293b;
+        background: #f1f5f9;
+        padding: 4px 12px;
+        border-radius: 50px;
+        border: 1px solid #e2e8f0;
+        transition: all 0.25s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .tag i {
+        font-size: 0.7rem;
+        color: #64748b;
+    }
+
+    .tag:hover {
+        transform: translateY(-2px);
+        background: #0b2a4a;
+        color: #ffffff;
+        border-color: #0b2a4a;
+    }
+
+    .tag:hover i {
+        color: #fbbf24;
+    }
+
+    /* --- Social Links --- */
+    .social-links {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 22px 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .social-links li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #f8fafc;
+        border-radius: 50%;
+        color: #475569;
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        text-decoration: none;
+        border: 1px solid #e2e8f0;
+    }
+
+    .social-links li a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-links li:nth-child(1) a:hover { background: #000000; color: #ffffff; border-color: #000000; }
+    .social-links li:nth-child(2) a:hover { background: #1877f2; color: #ffffff; border-color: #1877f2; }
+    .social-links li:nth-child(3) a:hover { background: #0a66c2; color: #ffffff; border-color: #0a66c2; }
+    .social-links li:nth-child(4) a:hover { background: #e4405f; color: #ffffff; border-color: #e4405f; }
+    .social-links li:nth-child(5) a:hover { background: #ff0000; color: #ffffff; border-color: #ff0000; }
+
+    /* --- Action Buttons --- */
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .contact-btn.primary {
+        background: #0b2a4a;
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(11, 42, 74, 0.2);
+    }
+
+    .contact-btn.primary:hover {
+        background: #f59e0b;
+        color: #ffffff;
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+        transform: translateY(-2px);
+    }
+
+    .contact-btn i {
+        transition: transform 0.3s ease;
+        font-size: 0.85rem;
+    }
+
+    .contact-btn:hover i {
+        transform: translateX(-4px);
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 768px) {
+        .owner-profile-section { padding: 60px 0; }
+        .section-title h2 { font-size: 2rem; }
+        .profile-content { padding: 30px 20px; }
+        .stats-bar { flex-wrap: wrap; gap: 8px; }
+        .stat-divider { display: none; }
+    }
+</style>
+<!-- PROMO -->
+  <!-- ABOUT SECTION (Full Width / No Image) -->
+<section class="ab_area section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="ab_content text-center">
+                    <span class="sub-title">سەکۆی ڕاهێنانی ئەکادیمی</span>
+                    <h2>بۆچی ئێمە هەڵدەبژێریت<br> بۆ سەرکەوتن لە پۆلی ١٢؟</h2>
+                    <p class="lead-text">ئێمە لێرەین بۆ ئەوەی ڕێگای گەیشتن بە خەونەکانت و کۆلێژی ئارەزوومەندت بۆ ئاسان بکەین. سەکۆکەمان تایبەت دیزاین کراوە بۆ قوتابیانی پۆلی ١٢.</p>
+                    <p class="desc-text">بە بەکارهێنانی تەکنەلۆژیای نوێ، هەموو وانەکان و شیکاری تاقیکردنەوە وزارییەکانمان خستۆتە بەردەستت، تاوەکو لە هەر شوێنێک بیت وەک ئەوە بێت لە ناو پۆلدا بیت.</p>
+                    
+                    <!-- Feature Grid -->
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="icon-box"><i class="ti-check"></i></div>
+                            <span><b>هەموو بابەتەکانی پۆلی ١٢</b> (زانستی و وێژەیی) بە وردی</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon-box"><i class="ti-check"></i></div>
+                            <span>شیکارکردنی <b>پرسیارە وزارییەکانی</b> ساڵانی ڕابردوو</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon-box"><i class="ti-check"></i></div>
+                            <span><b>ڕاهێنانی بەردەوام</b> و تاقیکردنەوەی ئۆنلاین بۆ پشکنینی ئاست</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon-box"><i class="ti-check"></i></div>
+                            <span>پشتگیری بەردەوامی <b>مامۆستا بەئەزموونەکان</b></span>
+                        </div>
+                    </div>
+
+                    <div class="btn-wrapper">
+                        <a class="btn_one primary-btn" href="course.html">
+                            دەستپێبکە و وانەکان ببینە <i class="ti-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- BLOG SECTION -->
+<!-- BLOG SECTION (No Images) -->
+
+<!-- BLOG SECTION (No Images & No Blog Links) -->
+<section id="blog" class="blog_area section-padding">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>دوایین هەواڵەکانی پەروەردە و زانکۆکان</h2>
+            <p>نوێترین بڕیارەکان، هەواڵی زانکۆکان و دەرفەتەکانی فێربوون لە هەرێمی کوردستان ببینە.</p>
+        </div>
+        <div class="row">
+            
+            <!-- Card 1: Sulaimani Transfer -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="text_blog_card h-100">
+                    <div class="card_header">
+                        <div class="badge_icon bg-primary-subtle text-primary">
+                            <i class="ti-announcement"></i>
+                        </div>
+                        <span class="news_date">ئەمڕۆ | خوێندنی باڵا</span>
+                    </div>
+                    <div class="card_body">
+                        <h2>ڕێگە بە گواستنەوە بۆ زانکۆی سلێمانی درایەوە</h2>
+                        <p>وەزارەتی خوێندنی باڵا جەختی کردەوە کە ڕاگرتنی گواستنەوە پێچەوانەی ڕێنماییەکانە و زانکۆکە پابەند کرایەوە بە وەرگرتنی داواکارییەکان.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: General Transfer & Department Change -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <div class="text_blog_card h-100">
+                    <div class="card_header">
+                        <div class="badge_icon bg-success-subtle text-success">
+                            <i class="ti-exchange-vertical"></i>
+                        </div>
+                        <span class="news_date">ئەمڕۆ | مۆڵەت و گواستنەوە</span>
+                    </div>
+                    <div class="card_body">
+                        <h2>پرۆسەی گواستنەوە و بەش‌گۆڕین دەستپێنەکرد</h2>
+                        <p>ئێستا خوێندکارانی زانکۆ و پەیمانگاکان دەتوانن داواکاری گواستنەوە، دابەزین و بەش‌گۆڕین بە شێوەی فەرمی پێشکەش بکەن.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Grade 12 Online Portal -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                <div class="text_blog_card h-100">
+                    <div class="card_header">
+                        <div class="badge_icon bg-warning-subtle text-warning">
+                            <i class="ti-book"></i>
+                        </div>
+                        <span class="news_date">نوێترین | پۆلی ١٢</span>
+                    </div>
+                    <div class="card_body">
+                        <h2>سەکۆی نوێی ڕاهێنانی ئەزموونەکانی پۆلی ١٢</h2>
+                        <p>تەواوی شیکاری پرسیارە وەزارییەکانی ساڵانی ڕابردوو و تاقیکردنەوەی ئۆنلاین بۆ ئامادەکاری خوێندکاران بەردەست کرا.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<footer class="site-footer" dir="rtl">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <!-- Column 1: Brand & About -->
+            <div class="footer-widget brand-widget">
+                <div class="footer-logo">
+                    <i style="color: #ffffff;" class="fa-solid fa-graduation-cap"></i>
+                    <span>پۆلی ١٢</span>
+                </div>
+                <p class="brand-desc">
+                    پلاتفۆرمی پۆلی ١٢ باشترین و سەرەکیترین سەرچاوەیە بۆ قوتابیانی پۆلی ١٢ لە هەرێمی کوردستان. ئامانجمان دابینکردنی کۆرس، پرسیاری وەزاری و ڕاهێنانی وردە بۆ بەدەستهێنانی نمرەی بەرز.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: پۆلی دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پۆلی دوانزە</h4>
+                <ul class="footer-links">
+                    <li><a href="kteb_malzamakan.html">کتێب و مەلزەمەکان</a></li>
+                    <li><a href="kurtkrawa.html">کورتکراوەکان</a></li>
+                    <li><a href="taqikrdnawakan.html">تاقیكردنه‌وه‌كان</a></li>
+                    <li><a href="quiz.html">کویز (جیاکراوە)</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: بەرەو دوانزە -->
+            <div class="footer-widget">
+                <h4 class="widget-title">بەرەو دوانزە</h4>
+                <ul class="footer-links">
+                      <li><a href="amozhgariakan.html">ئامۆژگاریەکان</a></li>
+                    <li><a href="mamostakan.html">مامۆستاکان + ڕوونکردنەوە</a></li>
+                    <li><a href="100.html">شێوازی خوێندن + ۱۰۰</a></li>
+                                                            <li><a href="barnamakan12.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: زانکۆ -->
+            <div class="footer-widget">
+                <h4 class="widget-title">زانکۆ</h4>
+                <ul class="footer-links">
+                            <li><a href="zanko.html">زانیاری زانكۆ</a></li>
+                    <li><a href="zanko.html">زانیاری په‌یمانگا</a></li>
+                    <li><a href="report.html">درووستكردنی ڕاپۆرت </a></li>
+                    <li><a href="siminar.html">درووستكردنی سیمینار </a></li>
+                    <li><a href="blog_single.html">زانیاری سکۆلەرشیپ</a></li>
+                     <li><a href="barnamakanzanko.html">به‌رنامه‌كان </a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: پەیوەندی -->
+            <div class="footer-widget">
+                <h4 class="widget-title">پەیوەندی</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">دەربارەی ئێمە</a></li>
+                    <li><a href="contact.html">پەیوەندی بکە</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER COPYRIGHT -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <p>&copy; ٢٠٢٦. هەموو مافێک پارێزراوە بۆ <b>پۆلی ١٢</b></p>
+                <p class="credit">بڵاوکراوەتەوە لەلایەن <a href="https://themewagon.com" target="_blank">AriMathers</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- jQuery -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- modernizer -->
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+    <!-- mobile menu -->
+    <script src="assets/js/jquery-simple-mobilemenu.js"></script>
+    <!-- owl-carousel -->
+    <script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <!-- magnific-popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- countTo -->
+    <script src="assets/js/jquery.inview.min.js"></script>
+    <!-- scrolltopcontrol -->
+    <script src="assets/js/scrolltopcontrol.js"></script>
+    <!-- WOW -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- scripts -->
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
